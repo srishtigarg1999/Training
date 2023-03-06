@@ -1,0 +1,62 @@
+1.What is Git?
+ *Git is popular version control system.
+ *Created in 2005 by Linus Torvalds.
+ *Open source and free software.
+ *Used for:
+          1.To keep track of changes that you make to file or directory.
+          2.To track who made changes.
+          3.For Coding collaboration.
+ *Installing git
+  sudo apt install git.
+2.What does git do?
+
+3.What are the different types of verion contol?
+*Source code control System(SCCS)
+---->Released in 1972 :closed source,free with unix.
+---->It keeps the original documentand instead of saving the whole document second time it just saves a snapshot of what the changes were.
+
+*Revision Control System(RCS)
+Released in 1982:Open source.
+---->Cross platform while SCCS is UNIX only.
+---->It kept the recent file in its whole form.
+---->These allow to work with individual file one at a time.
+
+*Concurrent version System(CVS)
+---->1986-1990
+---->Multiple files,entire project
+---->Multi users can work and share project.
+---->Update the change that other people have made.
+
+*Apache subversion(SVN)
+---->2000,open source
+---->tracking not just changes to single files or group of files but tracking what happened in a directory as a whole.
+
+*Bitkeeper SCM
+---->2000,Closed source
+---->Distributed version control
+
+4.Distributed version control
+---->Different users maintain their own repositories
+---->No central repository.
+---->Track changes,not versions.
+
+5.Installing git:
+*sudo apt install git
+*Set up username and email.
+$ git config --global user.name "yourusername"
+$ git config --global user.email "yourusername@example.com"
+
+To check if the configuration have been set properly
+git config --list
+
+git init command
+    *You can tell Git to monitor this directory.
+    *It is used for create and initialized the git directory (repo) in our system.
+    *For initiazlization :- git init
+    *For creating new repo with initialization :- git init new
+
+
+
+
+
+ 

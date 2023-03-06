@@ -1,0 +1,1025 @@
+Whai is ubuntu?
+Ubuntu is a Linux distribution based on Debian and composed mostly of free and open-source software. Ubuntu is officially released in three editions: Desktop, Server, and Core for Internet of things devices and robots. All of the editions can run on the computer alone, or in a virtual machine.
+
+Whai is Linux?
+Linux is a family of open-source Unix-like operating systems based on the Linux kernel, an operating system kernel first released on September 17, 1991, by Linus Torvalds.
+
+What is CLI?
+The CLI is used to interact with programs that don't have GUI.
+
+Commands
+ctrl-shift+ Makes the font bigger
+
+sudo apt install git
+---->Used to install git.
+
+Command is the program you are running.
+
+Options -
+---->tell the command how to operate.
+---->Start with a dash
+---->Usually one letter
+
+Arguments tell the command what to operate on.
+---->Usually a file path or set of files or folders.
+
+ls
+---->It shows the files in the specified directory.
+
+beryl@beryl-Latitude-7490:~$ ls
+Desktop    google-chrome-stable_current_amd64.deb  Pictures  snap       Videos
+Documents  Linux                                   Public    Templates
+Downloads  Music                                   Sample    Training
+
+
+ls -l
+---->It shows the long listing of the files.
+
+beryl@beryl-Latitude-7490:~$ ls -l
+total 91864
+drwxr-xr-x 2 beryl beryl     4096 Feb 15 13:06 Desktop
+drwxr-xr-x 2 beryl beryl     4096 Feb 14 18:18 Documents
+drwxr-xr-x 2 beryl beryl     4096 Feb 28 14:09 Downloads
+-rw-rw-r-- 1 beryl beryl 94023644 Feb 22 03:10 google-chrome-stable_current_amd64.deb
+-rw-rw-r-- 1 beryl beryl        0 Feb 28 12:15 Linux
+drwxr-xr-x 2 beryl beryl     4096 Feb 14 18:18 Music
+drwxr-xr-x 2 beryl beryl     4096 Feb 14 18:18 Pictures
+drwxr-xr-x 2 beryl beryl     4096 Feb 14 18:18 Public
+drwxrwxr-x 4 beryl beryl     4096 Feb 28 16:37 Sample
+drwx------ 3 beryl beryl     4096 Feb 28 11:12 snap
+drwxr-xr-x 2 beryl beryl     4096 Feb 14 18:18 Templates
+drwxrwxr-x 2 beryl beryl     4096 Feb 28 17:05 Training
+drwxr-xr-x 2 beryl beryl     4096 Feb 14 18:18 Videos
+
+
+ls -a
+---->It shows all the files not just the hidden ones.
+
+beryl@beryl-Latitude-7490:~$ ls -a
+.                                       .mozilla
+..                                      Music
+.bash_history                           Pictures
+.bash_logout                            .pki
+.bashrc                                 .profile
+.cache                                  Public
+.config                                 Sample
+Desktop                                 snap
+Documents                               .ssh
+Downloads                               .sudo_as_admin_successful
+.gnupg                                  Templates
+google-chrome-stable_current_amd64.deb  Training
+Linux                                   Videos
+.local
+
+-lh 
+---->It will show the list of file and directory with sizes in human readable format like MB, TB, GB)
+
+ls -lhs 
+---->It will show the list in descending order
+
+ls --color = auto
+---->This command is used to colorize the list.
+
+ls --color=never
+This command is used to decolorize the list.
+
+Color Meanings :
+
+Blue – Directory
+
+Uncolored - Files
+
+Green – Executable or recognised data file 
+
+Cyan ( Sky Blue ) - Symbolic link file
+
+Yellow with black background – Device
+
+Magneta ( Pink ) - Graphic image file
+
+Red – Archieve File
+
+Red with black background – Broken Link
+
+ls --version
+---->This command shows the version of ls.
+
+ls -n 
+---->It is used for print group Id and owner id instead of their names
+
+ls ../ 
+---->It is used for show the list of parent directory
+
+ls -R new_folder
+---->To list folders recursively of departments.
+---->This command will show the directories with sub-directories
+
+beryl@beryl-Latitude-7490:~/Sample$ ls -R new_folder
+new_folder:
+newsub_folder
+new_folder/newsub_folder:
+---->list all the subfolders also.
+
+ls -r 
+---->This command is used for show the list in reverse format
+
+ls -d */
+---->This command is used for show the directories only.
+
+Tab Completion
+---->Automatically completes a file or folder name.
+Test Navigation Shortcuts
+Ctrl A - Move to beginning of line.
+Ctrl E - Move to end of line.
+Ctrl-Left arrow - Move left one word
+Ctrl-Right arrow - Move right one word
+Ctrl-U - Remove from cursor to start.
+Ctrl-K - Remove from cursor to end.
+Ctrl-Y - Paste cropped text.
+Ctrl-Shift-C - Copy from clipboard
+Ctrl-Shift-V - Paste From clipboard
+
+man Command
+Tells what the command does manual page
+
+apropos 
+---->Helps to search the command
+
+apropos list
+---->Lists all the commands with list in it.
+
+file
+---->What kind of file you are asking about
+
+beryl@beryl-Latitude-7490:~$ file
+Usage: file [-bcCdEhikLlNnprsSvzZ0] [--apple] [--extension] [--mime-encoding]
+            [--mime-type] [-e <testname>] [-F <separator>]  [-f <namefile>]
+            [-m <magicfiles>] [-P <parameter=value>] <file> ...
+       file -C [-m <magicfiles>]
+       file [--help]
+
+
+cd
+---->Change directory
+
+pwd(Print working directory)
+---->Shows the absolute path of folder where we are currently working.
+
+Output:
+beryl@beryl-Latitude-7490:~/Sample$ pwd
+/home/beryl/Sample
+
+
+cd Exercise\ files
+ To tell that there is a space in between file name.
+
+cd ..
+---->To move to the previous directory.
+ 
+cd ../../finance/spreadsheets
+---->to go back 2 folders and then enter another folder.
+ 
+cd -
+---->Takes back to the previously used folder.
+cd
+---->Takes back to the home folder or root directory.
+cd Desktop/Beryl/Training
+---->To go into subdirectories.
+
+mkdir Sample
+---->makes a folder
+
+mkdir Sample/new_folder
+---->makes folder inside sample without switching to sample folder.
+
+mkdir Sample/new_folder/new_subfolder1 Sample/new_folder/new_subfolder2
+---->To make 2 or more folders inside a folder.
+
+mkdir -p Sample/test/test_sub
+---->To create the parent folder and then the child folder
+
+mkdir /home/beryl/Music/temp1
+---->To make directory at any path specify the path
+
+rmdir Sample/test/test_sub
+---->To remove the directory.
+
+rm
+---->To remove the files and directory
+
+rm -r file
+---->For remove the dirctory with subdirectories 
+rm file.txt
+---->For remove the file 
+rm *.txt
+---->For remove all files in current directory with extension .txt 
+rm -i fil
+---->it will ask before delete a file
+rm -ri dir
+it will ask before detete a directory
+rm -f file    
+--->it will delete file forcefully while its has only read only permission also
+rm -rf file
+---->it will delete directory forcefully while its has only read only permission also
+
+touch
+----> It is the command used to create the file.
+Syntax : touch file.txt
+touch -a file.txt
+It is used to change the access time of file.
+touch -m file.txt
+---->Used to only change the modification time
+touch -r demo.txt Demo.txt
+---->It is used for update time of file with reference to other mentioned file.
+touch -c fileName
+---->This command is used to check whether a file is created or not. If not created then don’t create it. This command avoids creating files.
+
+cp command
+
+It is the command which is used for copy file or Directory from one file to another . It takes two arguments , First is the location of file to be copied and second is where to copy.
+
+cp Linux.txt linux2.txt
+---->to copy from the file
+---->to copy to the file
+
+cp -i
+---->For take permissions before overwrite.
+
+cp -l
+---->It will create hard link of file .
+
+cp -r Sapmle1 Sample2
+---->To copy folder with files to another folder.
+
+cp am.txt Beryl/Training/Git
+---->To copy to another path
+
+mv command
+
+mv linux2.txt Sample2
+---->To move the file to another folder
+
+beryl@beryl-HP-ProBook-6460b:~/Training$ mv linux2.txt Sample2
+
+mv Sample2/linux2.txt Sample2/linux3.txt
+---->To rename the file
+---->first write the path of file then the new name
+
+beryl@beryl-HP-ProBook-6460b:~/Training$ mv Sample2/linux2.txt Sample2/linux3.txt
+
+mv Sample2/linux3.txt .
+---->To move the file to the current working folder in this case Training
+
+beryl@beryl-HP-ProBook-6460b:~/Training$ mv Sample2/linux3.txt .
+
+mv *.txt Sample2
+---->To move all the files with txt extension to sample 2
+
+mv Sample2/* .
+---->To move all the files from the sample 2 folder to the parent folder.
+
+rm command
+
+rm linux3.txt
+---->To remove the files
+
+rm linux?.txt
+---->removes files with only with number ahead like linux2.txt,linux3.txt
+
+rm -r Sample2
+---->Deletes the folder and its contents.
+
+find . -name "Lin*"
+---->To find the files with lin in them
+
+sudo ls /root
+---->Sudo is used to gain root priveledges
+
+sudo -s
+root@beryl-Latitude-7490:~/Desktop/Beryl/Training#
+
+Links
+Hard link
+Points to data on the disk.
+Soft Link
+Points to a file on the disk.
+
+
+Common Parts of linux filesystem
+/root-highest level of filesystem hierarchy.
+home-stores users home folders
+root-stores root home folder
+etc- configuration files for many tools
+bin-stores binaries
+lib-libraries and shared modules
+dev-represents devices on the system
+mnt-where local and remote filesystems are mounted.
+media-where removable storage is mounted.
+proc-virtual filesystem representing processes.
+sys-virtual filesystem representing kernel values.
+
+Pipeline commands:
+
+echo
+---->used to print text
+Syntax:echo "hello"
+Output:beryl@beryl-Latitude-7490:~$ echo "hello"
+hello
+
+echo "hello" wc
+Output:beryl@beryl-Latitude-7490:~$ echo "hello" | wc
+      1       1       6
+---->One line of text ,one word and 6 characters.
+
+cat 
+---->To show the contents of file
+Syntax:cat Linux.txt
+$cat file1 file2
+---->This will show the content of file1 and file2.
+
+head Linux.txt
+---->To show first 10 lines of the file.
+
+tail Linux.txt
+---->To show the last 10 lines of the file.
+
+head -n(number of lines) Linux.txt
+---->Shows number of lines mentioned in bracket.
+
+cat Linux.txt | cat -n
+---->Numbers all the lines of the file
+
+cat Linux.txt | cat -n | tail -n5
+---->First the lines are numbered then last 5 lines are shown.
+
+cat Linux.txt | tail -n5|cat -n
+---->First show the last 5 lines then number it
+
+cat > newfile
+---->Will create a file named newfile
+
+cat [filename-whose-contents-is-to-be-copied] > [destination-filename]
+---->The content will be copied in destination file
+---->If the destination file is not there then first it is created then the text is copied.
+
+cat file1 >> file2
+---->Will append the contents of one file to the end of another file
+
+tac filename
+---->Will display content in reverse order.
+
+cat -E "filename"
+---->Can highlight the end line of file
+
+cat>java.txt
+abcd
+afd
+---->create the file (java.txt) in current directory with content (abcd     afd)
+
+cat >> geeks.txt
+The newly added text.
+Will append the text "The newly added text." to the end of the file.
+
+cat filename1.txt filename2.txt > filename3.txt
+---->It merges filename1.txt and filename2.txt and stores the output in filename3.txt.
+
+less 
+---->Paginates text and provide navigation control.
+
+less Linux.txt
+---->See text with interface around it.
+
+
+Searching for text
+
+Grep
+---->It searches for text ot files for a given string or pattern of text.
+
+grep "the" Linux.txt
+---->Searches for word"the" in the file and returns the lines with "the" in it and highlights it.
+
+grep -n "the" Linux.txt
+---->Numbers the lines and we can see which number lines are there in output.
+
+*grep is case sensitive.
+
+grep -i "the" Linux.txt
+---->Case is ignored 
+
+grep -vi "the" Linux.txt
+---->Omit the lines with "the" in it.
+
+grep -E "[hijk]" Linux.txt
+---->Shows the lines with these letters in them and letters are highlighted.
+
+grep -E "\w{6,}" Linux.txt
+---->It highlights the words with length 6 or more.
+
+awk and sed commands can both be used to programmatically manipulate text in streams and files.
+
+awk is helpful for extracting particular data.
+sed is helpful for changing data.
+
+awk '{print $2}' sample_data.txt
+---->Print the 2nd column of sample_data.txt file
+
+Output:
+beryl@beryl-Latitude-7490:~/Desktop/Beryl$ awk '{print $2}' sample_data.txt
+Id
+314
+425
+822
+827
+567
+
+
+awk '{print $2 "\t" $1}' sample_data.txt
+---->To change the sequence of columns to be printed.
+---->It prints 2nd column and then first column
+
+Output:beryl@beryl-Latitude-7490:~/Desktop/Beryl$ awk '{print $2 "\t" $1}' sample_data.txt
+Id	Name
+314	Srishti
+425	Rachit
+822	Shubham
+827	Simran
+567	Neeraj
+
+
+awk '{print $2 "\t" $1}' sample_data.txt | sort -n
+---->Sorts the data by the id column.
+Output:
+beryl@beryl-Latitude-7490:~/Desktop/Beryl$ awk '{print $2 "\t" $1}' sample_data.txt | sort -n
+Id	Name
+314	Srishti
+425	Rachit
+567	Neeraj
+822	Shubham
+827	Simran
+
+
+sed "s/Orange/Red/" sample_data.txt
+---->s stands for substitute
+---->Substitute the orange with red
+
+Output:
+beryl@beryl-Latitude-7490:~/Desktop/Beryl$ sed "s/Orange/Red/" sample_data.txt
+Name     Id   Team
+Srishti  314  Purple 
+Rachit   425  Red
+Shubham  822  Green
+Simran   827  Purple
+Neeraj   567  Green
+
+sort sample_data.txt
+---->Sorts data for the first column.
+
+Output:beryl@beryl-Latitude-7490:~/Desktop/Beryl$ sort sample_data.txt
+Name     Id   Team
+Neeraj   567  Green
+Rachit   425  Orange
+Shubham  822  Green
+Simran   827  Purple
+Srishti  314  Purple
+
+sort -k2  sample_data.txt
+---->Sorts data based on first number of 2nd column.
+
+Output:
+beryl@beryl-Latitude-7490:~/Desktop/Beryl$ sort -k2  sample_data.txt
+Srishti  314  Purple
+Rachit   425  Orange
+Neeraj   567  Green
+Shubham  822  Green
+Simran   827  Purple
+Name     Id   Team
+
+sort -k2 -n  sample_data.txt
+---->It is used for numeric sorting
+
+sort -u dupes.txt
+---->Sorts the unique text.
+
+rev
+---->Print text in reverse sequence
+
+tac
+---->Concatenate and print files in reverse.
+
+tr
+Translate or modify individual characters according to parameters.
+
+VIM
+sudo apt install vim
+---->Used to install vim editor
+
+vim
+---->To open the editor.
+
+Shift+i
+---->To move to starting of line
+
+o
+---->To enter in new Line
+
+:w new.txt 
+---->To save the file
+
+:w
+---->To save the changes.
+
+:wq 
+---->To quit vim
+
+:q!
+To escape without saving.
+
+NANO
+The nano editor is lightweight text modification tool.
+
+
+Tar and zip archives command
+tar cvf myfiles.tar Sample1
+---->To compress folder with .tar extension.
+
+tar caf myfiles.tar.gz Sample1
+---->To compress files with .tar.gz extension
+
+tar caf myfiles.tar.bz2 Sample1
+---->To compress files with .tar.bz2 extension
+
+tar cvf file.tar *.c
+---->This command creates a tar file called file.tar which is the Archive of all .c files in current directory. 
+
+Steps to decompress
+---->Create a folder unpack
+mkdir unpack
+---->Move the zip file to it
+mv myfiles.tar.bz2 unpack
+---->Move to unpack folder
+cd unpack
+---->tar xf myfiles.tar.bz2
+Unzips the folder
+
+tar xf myfiles.tar.gz -C unpack2
+---->Unarchives to unpack2
+
+beryl@beryl-Latitude-7490:~/Desktop/Beryl$ tar xf myfiles.tar.gz -C unpack2
+
+
+zip -r exfile Sample1/
+---->To zip a folder along with its files.
+
+ls 1>filelist.txt
+---->To redirect the list to the folder
+
+beryl@beryl-Latitude-7490:~/Desktop/Beryl/Sample1$ ls 1>filelist.txt
+
+ls notreal 2>filelist3.txt
+---->To list the error in the file
+
+which ls
+---->Shows the path were ls command is located.
+
+beryl@beryl-Latitude-7490:~$ which ls
+/bin/ls
+
+uname-a
+---->to know about the system
+
+free -h
+---->To knoe how much RAM system has.
+---->h is human readable form.
+
+cat /proc/cpuinfo
+---->To know about the cpu
+
+df -h
+---->To find out how much space is taken up and how much id free on the system harddrive.
+
+sudo du / -hd1
+
+---->To see how much space files and folders take up on the system.
+
+sudo lshw | less
+---->To know the hardware details of the system.
+
+ip a
+---->To know the ip information of the system.
+
+sudo apt install tree
+---->To install the tree package
+
+sudo apt upgrade
+---->To upgrade the packages.
+
+
+kill
+---->Use the kill command to terminate an unresponsive program manually. It will signal misbehaving applications and instruct them to close their processes.
+
+ping
+---->Used to check whether a network or a server is reachable.
+
+exit command
+---->This command is used for exit from the terminal.
+Syntax:
+exit 
+
+time
+---->This command is used for display the execute time for command.
+Output:
+beryl@beryl-Latitude-7490:~$ time 
+
+real	0m0.000s
+user	0m0.000s
+sys	0m0.000s
+
+sleep 
+---->It is used for hold terminal for specific amount of time.  By default it takes time in seconds.
+
+Example:sleep 5
+
+clear
+---->Used to clear the terminal
+
+cal 
+---->This command is used to print the present month calendar.
+beryl@beryl-Latitude-7490:~$ cal
+     March 2023       
+Su Mo Tu We Th Fr Sa  
+          1  2  3  4  
+ 5  6  7  8  9 10 11  
+12 13 14 15 16 17 18  
+19 20 21 22 23 24 25  
+26 27 28 29 30 31   
+
+
+date
+---->This command is used to print current date and time.
+beryl@beryl-Latitude-7490:~$ date
+Fri Mar  3 16:13:36 IST 2023
+
+od
+---->od command in Linux is used to convert the content of input in different formats with octal format as the default format.
+
+od -b input.txt
+---->It displays the contents of input in octal format.
+
+Output:
+beryl@beryl-Latitude-7490:~/Desktop/Beryl$ od -b ss.txt
+0000000 150 151 165 152 151 152 012 151 040 141 155 040 123 162 151 163
+0000020 150 164 151 040 107 141 162 147 012
+0000031
+
+od -c input.txt
+---->It displays the contents of input in character format.
+
+Output:
+beryl@beryl-Latitude-7490:~/Desktop/Beryl$ od -c ss.txt
+0000000   h   i   u   j   i   j  \n   i       a   m       S   r   i   s
+0000020   h   t   i       G   a   r   g  \n
+0000031
+
+od -t x1 ss.txt
+---->It displays the content of input in hexadecimal format.
+Output:
+beryl@beryl-Latitude-7490:~/Desktop/Beryl$ od -t x1 ss.txt
+0000000 68 69 75 6a 69 6a 0a 69 20 61 6d 20 53 72 69 73
+0000020 68 74 69 20 47 61 72 67 0a
+0000031
+
+wc ss.txt
+---->It is used to count Lines,words and characters.
+
+Output:
+beryl@beryl-Latitude-7490:~/Desktop/Beryl$ wc ss.txt
+ 2  5 25 ss.txt
+
+wc -w  ss.txt
+---->Prints the number of words in the file along with file name.
+
+wc ss.txt ss1.txt
+---->Prints count of lines,words and characters of both files.
+
+Output:
+beryl@beryl-Latitude-7490:~/Desktop/Beryl$ wc ss.txt ss1.txt
+ 2  5 25 ss.txt
+ 1  4 18 ss1.txt
+ 3  9 43 total
+
+wc -m ss.txt
+---->Displays the count of characters.
+
+beryl@beryl-Latitude-7490:~/Desktop/Beryl$ wc -m ss.txt
+25 ss.txt
+
+
+uniq 
+---->It reports or filters out the repeated lines in a file. 
+
+uniq ss1.txt
+---->Gives the unique lines in the file
+
+uniq ss1.txt ss3.txt
+---->Copies unique lines to ss3 file.
+---->If the contents are not sorted then this command will not work.
+
+
+sort ss1.txt | uniq
+---->First sorts the file then find unique.
+
+beryl@beryl-Latitude-7490:~/Desktop/Beryl$ cat ss1.txt
+one
+two
+one
+two
+three
+one
+
+beryl@beryl-Latitude-7490:~/Desktop/Beryl$ sort ss1.txt | uniq
+one
+three
+two
+
+sort -u ss1.txt
+---->It also sorts the list and then find unique.
+
+
+cat ss1.txt | tr [a-z] [A-Z]
+---->To translate from lower to upper case.
+
+beryl@beryl-Latitude-7490:~/Desktop/Beryl$ cat ss1.txt | tr [a-z] [A-Z]
+ONE
+TWO
+ONE
+TWO
+THREE
+ONE
+
+
+chmod
+---->It is a common command that modifies a file or directory’s read, write, and execute permissions. In Linux, each file is associated with three user classes – owner, group member, and others.
+
+Syntax
+chmod [option] [permission] [file_name]
+
+Reference   Class     Description
+u          owner      file's owner
+
+g          group      users who are members of
+                      the file's group
+
+o          others     users who are neither the
+                      file's owner nor members of 
+                      the file's group
+
+a          all       All three of the above, same as ugo
+
+Operator  Description
++         Adds the specified modes to the
+          specified classes
+
+-         Removes the specified modes from 
+          the specified classes
+
+=         The modes specified are to be made
+          the exact modes for the specified 
+          classes
+
+r       Permission to read the file.
+w       Permission to write (or delete) the file.
+x       Permission to execute the file, or, in
+        the case of a directory, search it.
+
+ping
+---->The ping command is one of the most used basic Linux commands for checking whether a network or a server is reachable. In addition, it is used to troubleshoot various connectivity issues.
+
+Syntax:ping google.com
+
+wget command
+---->Used to download files from server or website.
+
+Syntax:
+wget http://example.com/sample.php
+
+wget -b http://www.example.com/samplepage.php
+---->To download the file in background.
+
+wget --tries=10 http://example.com/samplefile.tar.gz
+---->To try a given number of times.
+
+chown command
+---->It lets you change the ownership of a file, directory, or symbolic link to a specified username
+
+Syntax:chown owner_name file_name
+
+sudo command
+---->It allows you to perform task that require administrative or root permissions.
+---->When using sudo, the system will prompt users to authenticate themselves with a password. Then, the Linux system will log a timestamp as a tracker. By default, every root user can run sudo commands for 15 minutes/session.
+
+sudo -V
+---->Prints the version of sudo command.
+
+sudo -l
+---->The -l (list) option will print out the commands allowed (and forbidden) the user on the current host
+
+-k or –reset-timestamp invalidates the timestamp file.
+-g or –group=group runs commands as a specified group name or ID.
+-h or –host=host runs commands on the host.
+
+locate Linux.txt
+---->give the path of the file where it is located.
+beryl@beryl-Latitude-7490:~/Desktop$ locate Linux.txt
+/home/beryl/Desktop/Beryl/Training/Linux.txt
+
+locate -i Linux.txt
+---->ignores case senstivity
+
+find command
+Use the find command to search for files within a specific directory and perform subsequent operations.
+
+
+df command
+---->Use the df command to report the system’s disk space usage, shown in percentage and kilobyte (KB). Here’s the general syntax:
+
+df [options] [file]
+
+For example, enter the following command if you want to see the current directory’s system disk space usage in a human-readable format:
+
+df -h
+
+These are some acceptable options to use:
+
+df -m displays information on the file system usage in MBs.
+df -k displays file system usage in KBs.
+df -T shows the file system type in a new column.
+
+
+du command
+---->Shows how much space files and directories take up.
+
+diff command
+---->Short for difference, the diff command compares two contents of a file line by line. After analyzing them, it will display the parts that do not match.
+
+---->Programmers often use the diff command to alter a program instead of rewriting the entire source code.
+
+Here’s the general format:
+
+diff [option] file1 file2
+
+For example, you want to compare two text files – note.txt and note_update.txt:
+
+diff note.txt note_update.txt
+
+Here are some acceptable options to add:
+
+-c displays the difference between two files in a context form.
+-u displays the output without redundant information.
+-i makes the diff command case insensitive.
+
+job command
+---->Display all the running processes along with their statuses
+---->only available in csh, bash, tcsh, and ksh shells.
+---->syntax:- jobs [options] jobID
+---->-l lists process IDs along with their information.
+---->-n lists jobs whose statuses have changed since the last notification.
+---->-p lists process IDs only.
+
+kill command
+---->Use the kill command to terminate an unresponsive program manually.
+---->To kill a program, you must know its process identification number (PID)
+    • don’t know the PID. syntax:- ps ux
+    • syntax :- kill SIGKILL 63773
+---->SIGTERM requests a program to stop running and gives it some time to save all of its progress. The system will use this by default if you don’t specify the signal when entering the kill command.
+---->SIGKILL forces programs to stop, and you will lose unsaved progress.
+
+uname command
+---->The uname or unix name command will print detailed information about your Linux system and hardware. This includes the machine name, operating system, and kernel. To run this command, simply enter uname into your CLI.
+-a prints all the system information.
+-s prints the kernel name.
+-n prints the system’s node hostname.
+
+top command
+---->The top command in Linux Terminal will display all the running processes and a dynamic real-time view of the current system. 
+---->It sums up the resource utilization, from CPU to memory usage.
+
+history command
+---->the system will list up to 500 previously executed commands, allowing you to reuse them without re-entering.
+---->Keep in mind that only users with sudo privileges can execute this command. How this utility runs also depends on which Linux shell you use.
+
+-c clears the complete history list.
+-d offset deletes the history entry at the OFFSET position.
+-a appends history lines.
+
+echo
+---->The echo command is a built-in utility that displays a line of text or string using the standard output. 
+Syntax:
+echo “Hostinger Tutorials”
+
+zip command
+---->Use the zip command to compress your files into a ZIP file, a universal format commonly used on Linux. 
+---->It can automatically choose the best compression ratio.
+
+Syntax:
+zip archive.zip note.txt
+
+For unzip:
+unzip archive.zip
+
+hostname command
+---->Run the hostname command to know the system’s hostname. 
+
+-a or –alias displays the hostname’s alias.
+-A or –all-fqdns displays the machine’s Fully Qualified Domain Name (FQDN).
+-i or –ip-address displays the machine’s IP address.
+
+useradd command
+---->useradd is used to create a new account
+---->Only those with root privileges or sudo can run the useradd command.
+
+useradd John
+userdel username
+
+apt-get command
+---->apt-get is a command line tool for handling Advanced Package Tool (APT) libraries in Linux. 
+----> It lets you retrieve information and bundles from authenticated sources to manage, update, remove, and install software and its dependencies.
+---->Running the apt-get command requires you to use sudo or root privileges.
+
+These are the most common commands you can add to apt-get:
+
+---->update synchronizes the package files from their sources.
+---->upgrade installs the latest version of all installed packages.
+---->check updates the package cache and checks broken dependencies.
+
+alias
+---->alias allows you to create a shortcut with the same functionality as a command, file name, or text. 
+---->When executed, it instructs the shell to replace one string with another.
+
+Syntax:
+alias Name=String
+
+Example:alias CD="cd Desktop"
+
+unalias
+---->To remove an existing alias.
+unalias CD
+
+Options for Alias command: 
+-p option : This option prints all the defined aliases is reusable format.
+
+su command
+---->The switch user or su command allows you to run a program as a different user.
+
+---->It changes the administrative account in the current log-in session.
+
+---->This command is especially beneficial for accessing the system through SSH or using the GUI display manager when the root user is unavailable.
+
+Here are some acceptable options to use:
+
+-p or –preserve-environment keeps the same shell environment, consisting HOME, SHELL, USER, and LOGNAME.
+-s or –shell lets you specify a different shell environment to run.
+-l or –login runs a login script to switch to a different username. Executing it requires you to enter the user’s password.
+
+htop command
+---->The htop command is an interactive program that monitors system resources and server processes in real time.
+
+ps command
+---->The process status or ps command produces a snapshot of all running processes in your system. 
+---->Executing the ps command without an option or argument will list the running processes in the shell along with:
+      
+The unique process ID (PID)
+The type of the terminal (TTY)
+The running time (TIME)
+The command that launches the process (CMD)
+
+
+
+
+    
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
