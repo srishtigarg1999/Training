@@ -279,8 +279,25 @@ Removing junk2.txt
 
 25.Revert a commit
    *git revert SHA value
+   *File will be there but changes will not be tracked.
+
+26.git checkout
+    * use to make branch and navigate between the branches.
+    * Create new branch :- git checkout -b name_of_branch
+    * switch to new branch :- git checkout name_of_branch
+    * copy all data from one to another branch :- git checkout -b destination_branch_name  source_branch_name
+
+27.git branch
+    * To check name of branches for that git location.
+    * Syntax :- git branch 
+
+28.To delete a branch
+   *git branch -d name_of_branch
+
+  
 
 
+Advance git command
 
 
 
