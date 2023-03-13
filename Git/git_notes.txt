@@ -49,11 +49,248 @@ $ git config --global user.email "yourusername@example.com"
 To check if the configuration have been set properly
 git config --list
 
-git init command
+6.git init command
     *You can tell Git to monitor this directory.
     *It is used for create and initialized the git directory (repo) in our system.
     *For initiazlization :- git init
     *For creating new repo with initialization :- git init new
+
+7.ls -la .git
+  *Shows the files inside git.
+
+8.git add command
+    *To make file tracked , we use add command.
+          Syntax:- git add file_name   or   git add .    (to add everything in the dir).
+
+9.git commit command
+    *So even though Git is tracking index.html, there isn’t anything in the Git repository about the file yet.
+    * Used for commit the changes in current repo.
+          git commit -m “comment which you want”
+
+10.Commit message best practices
+  *A short line summary.
+  *A blank line and a more complete description.
+  *Keep each line less than 72 characters.
+  *Write commit messages in present tense not past tense.
+
+11.git log command
+   *Return the log of all the commits that have been made in the project with the newest at the top.
+   *commit 6cdd3c7bc10999436bd2372df4e332d0566f1c67 : This shows the id and is unique for each commit.
+   *Author: Srishti Garg <srishti.garg@berylsystems.com>:Information that is pulled from our configuration file.
+   *git log -n 5:Shows the 5 most recent commits.
+   *git log --since=yyyy-mm-dd:Shows the commits since the date given.
+   *git log --until=2023-03-06:Shows the commits until the date given.
+   *git log --author="Srishti":To get commits by author name.
+   *git log --grep="Init":Finds the commit that has "Init" in it.
+
+12.Steps for commit
+   *Make changes
+   *Add the changes
+   *Commit changes to the repository with a message.
+
+13.Hash values(SHA-1)
+   * Git generartes a checksum foe each change set.
+   *Checksum algorithms convert data into a simple number
+   *Same data always equals same checksum
+   *Data integrity is fundamental.
+   *Changing data would change checksum.
+   *Git uses SHA-1 hash algorithm to create checksum.
+   *40-character hexadecimal string(0-9,a-f)
+
+14.HEAD Pointer
+   *It is a refrence variable.
+   * Pointer to tip of current branch in repository
+   *Last state of repository,what was last checked out
+   *Points to parent of next commit where writing commit takes place
+   *cat .git/refs/heads/master-gives the SHA value
+   
+15.diff
+   *To show what has changed in a file in a common format.
+   *git diff command is used to show what changes are done to the file.
+
+16.git diff --staged
+  *Show only the changes that are in the staging area.(after adding file)
+git diff --color-words
+  *Show only the words that are different.
+
+beryl@beryl-Latitude-7490:~/Desktop/first_project$ git diff --staged
+diff --git a/aa.txt b/aa.txt
+index e2d68f1..a200d08 100644
+--- a/aa.txt
++++ b/aa.txt
+@@ -1,2 +1,4 @@
+-This is First file
++This is the First file
+ This is the first file I added to the project.
++This file comes before the others.
++Git is tracking my changes
+
+Here aa.txt is added and then changed things are shown.
+
+17.Deleting files
+First Mehod:-
+  *You can delete file manually.
+  *To commit the change of deleting file to our repository we have to write command:
+   git rm cc.txt
+Second Method:-
+  *git rm dd.txt
+
+18.Move and rename files
+First Method:-
+  *First rename the file manually
+  *Then add the new named file and remove the old named file.
+   Example:git add FirstFile.txt,git rm aa.txt
+   beryl@beryl-Latitude-7490:~/Desktop/first_project$ git status
+   On branch master
+   Changes to be committed:
+   (use "git reset HEAD <file>..." to unstage)
+
+	renamed:    aa.txt -> FirstFile.txt
+Second method:-
+   *git mv bb.txt SecondFile.txt
+
+For moving the file:
+   *git mv cc.txt First_Folder/cc.txt
+
+19.git pull
+    * Used to fetch and download content from a remote repository and immediately update the local repo to match that content.
+    * Syntax :- git pull <remote> <branch>
+          note  :- git pull contains git fetch <remote> and git merge origin/<current-branch>
+          
+13. git push
+    * used to push all commits from local repo to online repository.
+      Syntax :- git push -u origin main
+              Create any folder 
+              cd folder
+              git init
+              gir remote add <remote><ssh-link>
+              git pull <remote><branch>
+              
+14. git remote add origin url:-
+     *first by SSH key
+Step-1:Run the ssh-keygen command.
+You can use the -t option to specify the type of key to create.
+
+For example, to create an RSA key, run:
+
+ssh-keygen -t rsa
+
+You can use the -b option to specify the length (bit size) of the key, as shown in the following example:
+
+ssh-keygen -b 2048 -t rsa
+
+Step-2:The command prompts you to enter the path to the file in which you want to save the key.
+
+A default path and file name are suggested in parentheses. For example: /home/user_name/.ssh/id_rsa. To accept the default path and file name, press Enter. Otherwise, enter the required path and file name, and then press Enter.
+
+Step-3:The command prompts you to enter a passphrase.
+
+The passphrase is not mandatory if you want to log in to an instance created using an Oracle-provided image. However, it is recommended that you specify a passphrase to protect your private key against unauthorized use.
+ 
+Step-4:Then go to location of id_rsa.pub
+                  eg :- Home/beryl/.ssh/id_rsa.pub
+Step-5:copy the key from the file (entire file)
+      
+Step-6:then go to github profile setting -> Access (ssh and gpg key) -> click new ssh key -> paste the key -> press add ssh               key.
+Step-7:Now go to file loaction which you want to upload on github, open terminal there. And executing below commands .
+                      git init
+                      git add file or folder_name
+                      git commit -m “Comment”
+                      git branch -M main
+                      git remote add origin url            :- url>( git@github.com:srishtigarg1999/demo-for-ssh.git)
+                      git push -u origin main
+      *By HTTPs :-
+           Step-1:git init
+              git add file or folder_name
+              git commit -m “comment”
+              git branch -M main
+              git remote add origin url      :- url ->(https://github.com/sachin-beryl/Training.git)
+              git push -u origin main   
+          Step-2 :After executing above command enter username and password of github.
+          Step-3: If password not working then follow below steps:-
+          Step-4: Github profile setting -> scroll down and click on developer setting -> personal access tokens ->                 tokens(classic) -> generate new token -> generate new token (classic) -> check all the boxes -> click generate                  token.
+           Step-5: Copy the token and save for laters uses.
+            Step-6:Now use the token as password .
+
+15.Stage and commit shortcut
+   *git commit -am "Message"
+    Stages and commits all changes to tracked files.
+    Does not include untracked files or files that are newly created.
+
+14.View a commit
+   * Used to view changes that we have made in earlier commits.
+   *git show Sha value
+   *git show f976s --color-words
+
+15.Compare commits
+  * Used to see the difference between 2 commits
+  Command:
+  *git diff 8b3a8b..58fb9dc
+  *We can also use head for latest commits
+
+
+16.Multiline commit messages
+   *To write multi line commits command is:
+    git commit -a
+   *git log --oneline : Gives the first line of each edit
+
+17.Make atomic commits
+   *Small commits
+   *Only affect a single aspect
+   *Easier to understand,to work with, and to find bugs.
+   *Improves collaboration
+
+18.Undo working directory changes
+  *To undo the changes that we have made before commiting and staging.
+  *Command:- git checkout -- file_name
+  *To undo changes in all the files
+  *Command:-git checkout -- .
+
+19.Unstage files
+  *To unstage the files
+  *Command:git reset HEAD file_name
+
+20.Amend commits
+  *Modify the latest commit
+  *command: git commit --amend -m "message"
+  *It will change the most recent commit with new commit.
+  *Message can also be modified by this.
+
+21.Remove Untracked files
+  * git clean -n:-Tells us what will happen if we run clean but does not actually remove it.
+beryl@beryl-Latitude-7490:~/Desktop/first_project$ git clean -n
+Would remove junk1.txt
+Would remove junk2.txt
+  *git clean -f:-Forcefully removes the untracked files.
+beryl@beryl-Latitude-7490:~/Desktop/first_project$ git clean -f
+Removing junk1.txt
+Removing junk2.txt
+
+22. .gitignore
+   *Git will ignore the files that are in this file.
+
+23.Ignore tracked files
+
+  *git rm --cached file_name
+  *ignore any changes made to the file.
+
+24.Track empty directories
+   * Git do not track empty directories.
+
+25.Revert a commit
+   *git revert SHA value
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 

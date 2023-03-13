@@ -254,6 +254,9 @@ cp -r Sapmle1 Sample2
 cp am.txt Beryl/Training/Git
 ---->To copy to another path
 
+beryl@beryl-Latitude-7490:~/Desktop/a$ cp aa.txt bb.txt /home/beryl/Desktop/b/
+To copy the files of one folder to another folderfir go into the folder whose files are to be copied then write this command.
+
 mv command
 
 mv linux2.txt Sample2
@@ -532,7 +535,10 @@ o
 ---->To quit vim
 
 :q!
-To escape without saving.
+---->To escape without saving.
+
+vim cc.txt
+---->To create new File
 
 NANO
 The nano editor is lightweight text modification tool.
