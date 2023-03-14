@@ -299,6 +299,110 @@ Removing junk2.txt
 
 Advance git command
 
+29. git stash:-
+
+  *When you run git stash, the uncommitted code disappears from the file without being committed.
+  *Stashing is like saving a temporary local commit to your branch
+Syntax:
+       *git stash:To stash the file,the uncommited code will disappear.
+       *git stash apply:To apply the stash,the code will reappear.
+       *git stash list:to list all the stashes,the most recent will appear at top.
+       *git stash apply 2:will apply the 2nd stash.
+       *git stash drop 1:To delete the first stash.
+       *git stash clear:To delete all the stash.
+       *git stash push -m "added final feature":To add some message while adding stash.
+
+
+30. git reset:-
+
+  It is used to reset the commits.
+    * To reset last commit 
+              syntax :- git reset --soft HEAD~1
+    * To reset more than one commit, replace by number of commit you want to reset
+              syntax :- git reset --soft HEAD~4
+    * NOTE :-  git reset --hard HEAD~1  [this reset essentially erases your last commit]
+
+31.git bisect:-
+    * Find bad commit in your app or code.
+    * Steps:-
+                1. Go to file location and open terminal.
+                2. git log
+                3. copy bad and good commit_id , save other place for further use.
+                4. To start bisect 
+                       -> git bisect start
+                5. provide bad commit
+                       -> git bisect bad Bad_commit_id
+                6. provide good commit
+                       -> git bisect good Good_commit_id
+                7. now automatically bisecting process occur.
+                8. If provided output is bad write command 
+                       -> git bisect bad
+                9. if provided output is good write command 
+                       -> git bisect good
+                10. after good command, bisect will show all the things make changes according to your requirement.
+    * To clean up the bisection state and return to the original HEAD
+              -> git bisect reset.
+
+32. git squash:-
+ squashing your commits:-
+    * squash -> combine your commits without loosing data.
+          Eg :-  add 1 commit
+                 add 2 commit
+                 add 3 commit 
+                  combine above in single commit.
+    * Steps:- 
+                * select commits :- git rebase -i SHA       (3 for last 3 commits)
+                * after above command editor opens -> replace “pick” word with “s” (squash) , but not replace the main commit which you               want to show.
+                * Save and exit  =  ctrl+o -> enter -> ctrl exit.
+                * Another editor opens to edit message,  edit the message.
+                * Save and exit = ctrl+o -> enter -> ctrl exit.
+                * git push origin main -f.
+
+33.git rebase :-
+    * rebase is to maintain a linear project history.
+    * git rebase in standard mode will automatially take the commits in your current working branch and apply them to the head of your        passed branch.
+    Steps :-
+             * create new branch 
+                              -> git checkout -b feature_branch
+             * #make edit in file which you want.
+             *git commit -am “add new feature”
+             *Now merge the branches using rebase
+                              -> git rebase <base>
+             * switch to master branch and merge the feature branch :- git merge feature_branch
+             * git add .
+             * git push origin main.
+
+34.Cherry pick :- 
+    * Cherry picking is the act of picking a commit from a branch and applying it to another.
+    * say a commit is accidently made to the wrong branch. You can switch to the correct branch and cherry-pick the commit to where it should belong.
+    
+    steps :- 
+        1. switch to other branch.
+         -> git checkout sachin
+         
+        2. Make changes in this branch.
+         -> git pull origin main         /////pull request in important before making changes for latest updates.
+         
+            touch cherry1.txt
+            git add.
+            git commit -m "cherry pick test 1"
+            git push
+            
+            touch cherry2.txt
+            git add .
+            git commit -m "cherry pick test 2"
+            git push
+            
+        3. But we only want cherry2.txt in main branch.
+         -> git log
+         -> copy the commit id of cherry2.txt
+            
+        4. Switch to main branch and use cherry-pick command to merge in main branch only picked commit id.
+         ->  git checkout main
+         ->  git cherry-pick 0028747575e0b1791e03974186527afae18ae5dd                          //////(commit_id)
+         ->  git push
+
+
 
 
 
