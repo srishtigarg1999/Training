@@ -409,6 +409,17 @@ Syntax:
   Syntax:git clone git@github.com:srishtigarg1999/Practice.git
 
 
+36.git pull
+  *Git pull is used to fetch and merge changes from thr remote repository to the local repository.
+  *Git pull is a combination of two commands,git fetch followed by git merge.
+  *Git fetch command downloads content from the required remote repository.
+  *Git merge command command combines multiple sequences of commits into a single branch.
+  *Git pull git@github.com:srishtigarg1999/Practice.git
+  *Syntax :- git pull <remote> <branch>
+          note  :- git pull contains git fetch <remote> and git merge origin/<current-branch>
+  
+
+
 
 
 
