@@ -294,6 +294,7 @@ Removing junk2.txt
 28.To delete a branch
    *git branch -d name_of_branch
 
+
   
 
 
@@ -360,7 +361,7 @@ Syntax:
 
 33.git rebase :-
     * rebase is to maintain a linear project history.
-    * git rebase in standard mode will automatially take the commits in your current working branch and apply them to the head of your        passed branch.
+    * git rebase in standard mode will automatially take the commits in your current working branch and apply them to the head of your passed branch.
     Steps :-
              * create new branch 
                               -> git checkout -b feature_branch
@@ -401,6 +402,11 @@ Syntax:
          ->  git checkout main
          ->  git cherry-pick 0028747575e0b1791e03974186527afae18ae5dd                          //////(commit_id)
          ->  git push
+
+
+35.git clone
+   *Used to create a copy of the project
+  Syntax:git clone git@github.com:srishtigarg1999/Practice.git
 
 
 
