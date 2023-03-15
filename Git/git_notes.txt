@@ -417,6 +417,9 @@ Syntax:
   *Git pull git@github.com:srishtigarg1999/Practice.git
   *Syntax :- git pull <remote> <branch>
           note  :- git pull contains git fetch <remote> and git merge origin/<current-branch>
+
+37.Merge Conflict
+  *A merge conflict is an event that takes place when Git is unable to automatically resolve differences in code between two commits. Git can merge the changes automatically only if the commits are on different lines or branches.
   
 
 
