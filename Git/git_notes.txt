@@ -421,6 +421,12 @@ Syntax:
 37.Merge Conflict
   *A merge conflict is an event that takes place when Git is unable to automatically resolve differences in code between two commits. Git can merge the changes automatically only if the commits are on different lines or branches.
   
+Resolve conflict
+   *Open the file in VS code
+   *Select the changes you want
+   *Then save the file and commit the changes.
+
+
 
 
 
