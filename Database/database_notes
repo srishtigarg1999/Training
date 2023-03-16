@@ -39,6 +39,52 @@ Multiversion concurrency control (MVCC)
 Streaming Replication (as of 9.0)
 Hot Standby (as of 9.0)
 
+3.Installation Of PostgreSQL
+  *Command:-
+   1. sudo apt-get update
+   2. sudo apt-get upgrade
+   3. sudo apt-get install postgresql postgresql-contrib
+
+4.Start PostgreSQL CLI
+  *service postgresql-To check the status of postgreSQL.
+   Output:-Usage: /etc/init.d/postgresql {start|stop|restart|reload|force-reload|status}    [version ..]
+  *service postgresql status-Running status of postgreSQL
+  *sudo su postgres-To login into postgres
+  *psql-To enter into postgreSQL terminal
+  *\q-To exit the PostgreSQL CLI.
+
+5.In PostgreSQL CLI
+  * \l-To see all the databases present
+  Output:-
+                             List of databases
+   Name    |  Owner   | Encoding | Collate | Ctype |   Access privileges   
+-----------+----------+----------+---------+-------+-----------------------
+ postgres  | postgres | UTF8     | en_IN   | en_IN | 
+ template0 | postgres | UTF8     | en_IN   | en_IN | =c/postgres          +
+           |          |          |         |       | postgres=CTc/postgres
+ template1 | postgres | UTF8     | en_IN   | en_IN | =c/postgres          +
+           |          |          |         |       | postgres=CTc/postgres
+ test      | postgres | UTF8     | en_IN   | en_IN | 
+ test1     | postgres | UTF8     | en_IN   | en_IN | 
+(5 rows)
+  
+  * \du-To list the users
+  
+  Output:-
+  List of roles
+ Role name |                         Attributes                         | Member of 
+-----------+------------------------------------------------------------+-----------
+ postgres  | Superuser, Create role, Create DB, Replication, Bypass RLS | {}
+
+  *ALTER USER postgres WITH PASSWORD 'admin'; - To change the password of the default user    postgres.
+
+  *CREATE USER user_1 WITH PASSWORD 'admin'; - To create new user.
+  *ALTER USER user_1 WITH SUPERUSER; - To provide priveledge to the user.
+  *DROP USER user_1; - To delete the user.
+  *man psql-To know all the commands that can be used in psql.
+
+
+
 
 
 
