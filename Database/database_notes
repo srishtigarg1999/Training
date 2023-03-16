@@ -199,6 +199,60 @@ polygon	40+16n	Polygon (similar to closed path)	((x1,y1),...)
 circle	24 bytes	Circle	<(x,y),r> (center point and radius)
 
 
+7.Array Type
+PostgreSQL gives the opportunity to define a column of a table as a variable length multidimensional array. Arrays of any built-in or user-defined base type, enum type, or composite type can be created.
+
+Declaration of Arrays
+Array type can be declared as
+
+CREATE TABLE monthly_savings (
+   name text,
+   saving_per_quarter integer[],
+   scheme text[][]
+);
+or by using the keyword "ARRAY" as
+
+CREATE TABLE monthly_savings (
+   name text,
+   saving_per_quarter integer ARRAY[4],
+   scheme text[][]
+);
+
+Inserting values
+Array values can be inserted as a literal constant, enclosing the element values within curly braces and separating them by commas. An example is shown below −
+
+INSERT INTO monthly_savings 
+VALUES (‘Manisha’, 
+‘{20000, 14600, 23500, 13250}’, 
+‘{{“FD”, “MF”}, {“FD”, “Property”}}’); 
+Accessing Arrays
+An example for accessing Arrays is shown below. The command given below will select the persons whose savings are more in second quarter than fourth quarter.
+
+SELECT name FROM monhly_savings WHERE saving_per_quarter[2] > saving_per_quarter[4];
+Modifying Arrays
+An example of modifying arrays is as shown below.
+
+UPDATE monthly_savings SET saving_per_quarter = '{25000,25000,27000,27000}'
+WHERE name = 'Manisha';
+or using the ARRAY expression syntax −
+
+UPDATE monthly_savings SET saving_per_quarter = ARRAY[25000,25000,27000,27000]
+WHERE name = 'Manisha';
+
+
+Searching Arrays
+
+An example of searching arrays is as shown below.
+
+SELECT * FROM monthly_savings WHERE saving_per_quarter[1] = 10000 OR
+saving_per_quarter[2] = 10000 OR
+saving_per_quarter[3] = 10000 OR
+saving_per_quarter[4] = 10000;
+If the size of array is known, the search method given above can be used. Else, the following example shows how to search when the size is not known.
+
+SELECT * FROM monthly_savings WHERE 10000 = ANY (saving_per_quarter);
+
+
 
 
 
