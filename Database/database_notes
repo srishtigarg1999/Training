@@ -300,6 +300,37 @@ DROP TABLE table_name;
 
 The message returned DROP TABLE indicates that drop command is executed successfully.
 
+12.Schema
+A schema is a named collection of tables. A schema can also contain views, indexes, sequences, data types, operators, and functions. Schemas are analogous to directories at the operating system level, except that schemas cannot be nested. PostgreSQL statement CREATE SCHEMA creates a schema.
+
+The basic syntax of CREATE SCHEMA is as follows −
+
+CREATE SCHEMA name;
+Where name is the name of the schema.
+
+Syntax to Create Table in Schema
+The basic syntax to create table in schema is as follows −
+
+CREATE TABLE myschema.mytable (
+...
+);
+
+Example
+Let us see an example for creating a schema. Connect to the database testdb and create a schema myschema as follows −
+
+testdb=# create schema myschema;
+CREATE SCHEMA
+The message "CREATE SCHEMA" signifies that the schema is created successfully.
+
+Advantages of using a Schema
+*It allows many users to use one database without interfering with each other.
+
+*It organizes database objects into logical groups to make them more manageable.
+
+*Third-party applications can be put into separate schemas so they do not collide with the names of other objects.
+
+
+INSERT into employee(first_name,last_name,gender,DOB,email,salary)VALUES('Srishti','Garg','Female','1999-11-18','srishti.garg@berylsystems.com',40000);
 
 
 
