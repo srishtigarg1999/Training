@@ -252,6 +252,61 @@ If the size of array is known, the search method given above can be used. Else, 
 
 SELECT * FROM monthly_savings WHERE 10000 = ANY (saving_per_quarter);
 
+8.CREATE DATABASE
+*This command will create a database from PostgreSQL shell prompt, but you should have appropriate privilege to create a database. By default, the new database will be created by cloning the standard system database template1.
+
+Syntax
+The basic syntax of CREATE DATABASE statement is as follows −
+
+CREATE DATABASE dbname;
+where dbname is the name of a database to create.
+
+Using createdb Command
+PostgreSQL command line executable createdb is a wrapper around the SQL command CREATE DATABASE. The only difference between this command and SQL command CREATE DATABASE is that the former can be directly run from the command line and it allows a comment to be added into the database, all in one command.
+
+9.CONNECT DATABASE
+Syntax:-\c db_name
+
+10.DROP DATABASE
+This command drops a database. It removes the catalog entries for the database and deletes the directory containing the data. It can only be executed by the database owner. This command cannot be executed while you or anyone else is connected to the target database (connect to postgres or any other database to issue this command).
+
+Syntax:- DROP DATABASE testdb;
+
+10.CREATE TABLE
+*The PostgreSQL CREATE TABLE statement is used to create a new table in any of the given database.
+
+Syntax:-CREATE TABLE table_name(
+   column1 datatype,
+   column2 datatype,
+   column3 datatype,
+   .....
+   columnN datatype,
+   PRIMARY KEY( one or more columns )
+);
+CREATE TABLE is a keyword, telling the database system to create a new table. The unique name or identifier for the table follows the CREATE TABLE statement.
+
+eg:-create table employee(id BIGSERIAL PRIMARY KEY,first_name VARCHAR(20) NOT NULL,last_name VARCHAR(20) NOT NULL ,gender VARCHAR(5) NOT NULL,DOB DATE NOT NULL,email VARCHAR(50));
+
+*You can verify if your table has been created successfully using \d command, which will be used to list down all the tables in an attached database.
+
+
+11.DROP TABLE
+The PostgreSQL DROP TABLE statement is used to remove a table definition and all associated data, indexes, rules, triggers, and constraints for that table.
+
+Syntax
+Basic syntax of DROP TABLE statement is as follows −
+
+DROP TABLE table_name;
+
+The message returned DROP TABLE indicates that drop command is executed successfully.
+
+
+
+
+
+
+
+
 
 
 
