@@ -82,6 +82,126 @@ Hot Standby (as of 9.0)
   *ALTER USER user_1 WITH SUPERUSER; - To provide priveledge to the user.
   *DROP USER user_1; - To delete the user.
   *man psql-To know all the commands that can be used in psql.
+  *psql -h localhost -p 5432 -U postgres DB_name - To connect to database directly
+
+6.Datatype
+
+*While creating a table, for each column,you specify a datatype,i.e,what kind of data you want to store in the table fields.
+
+This enables several benefits −
+
+*Consistency − Operations against columns of same data type give consistent results and are usually the fastest.
+
+*Validation − Proper use of data types implies format validation of data and rejection of data outside the scope of data type.
+
+*Compactness − As a column can store a single type of value, it is stored in a compact way.
+
+*Performance − Proper use of data types gives the most efficient storage of data. The values stored can be processed quickly, which enhances the performance.
+
+->Numeric Types
+  *Numeric types consist of two-byte, four-byte, and eight-byte integers, four-byte and eight-byte floating-point numbers, and selectable-precision decimals. The following table lists the available types.
+
+
+
+
+
+
+         Name			Storage Size	               Description				  Range
+	smallint		2 bytes	small-range             integer			                -32768 to +32767
+	
+	integer		        4 bytes	                      typical choice for integer		-2147483648 to +2147483647
+	
+	bigint		        8 bytes	large-range              integer		                -9223372036854775808 to 9223372036854775807
+	
+	decimal		        variable	        user-specified precision,exact	                up to 131072 digits before the decimal point; up to 												                16383 digits after the decimal point
+	
+	numeric		        variable	        user-specified precision,exact	                up to 131072 digits before the decimal point; up to 												                 16383 digits after the decimal point
+	
+	real			4 bytes	                variable-precision,inexact		            6 decimal digits precision
+	
+	double precision	8 bytes	                variable-precision,inexact		            15 decimal digits precision
+	
+	smallserial		2 bytes	                small autoincrementing integer	                     1 to 32767
+	
+	serial			4 bytes	                 autoincrementing integer		             1 to 2147483647
+	
+	bigserial		8 bytes	                large autoincrementing integer	                     1 to 92233720368547758
+
+
+->Monetary Types
+  *The money type stores a currency amount with a fixed fractional precision. Values of the numeric, int, and bigint data types can be cast to money. Using Floating point numbers is not recommended to handle money due to the potential for rounding errors.
+
+        Name	                     Storage Size	                                       Description	                         Range
+       money	                     8 bytes	                                              currency amount	               -92233720368547758.08 to +92233720368547758.07
+
+->Character Types
+*The table given below lists the general-purpose character types available in PostgreSQL.
+ 
+      S.No.	        Name & Description
+	1		character varying(n), varchar(n)
+			variable-length with limit
+
+	2		character(n), char(n)
+			fixed-length, blank padded
+
+	3		text 
+			variable unlimited length
+
+->Binary Data Types
+*The bytea data type allows storage of binary strings as in the table given below.
+
+   Name	          Storage Size	     Description
+   bytea	1 or 4 bytes plus the  actual binary string	variable-length binary string
+
+->DATE/TIME TYPE
+*PostgreSQL supports a full set of SQL date and time types, as shown in table below. Dates are counted according to the Gregorian calendar. Here, all the types have resolution of 1 microsecond / 14 digits except date type, whose resolution is day.
+	
+	Name		       		Storage Size		     Description			Low Value		High Value
+	timestamp [(p)] 
+	[without time zone ]			8 bytes	       both date and time (no time zone)	4713 BC		        294276 AD
+	
+	TIMESTAMPTZ				8 bytes	      both date and time, with time zone	4713 BC		        294276 AD
+
+	date					4 bytes	date     (no time of day)			4713 BC		         5874897 AD
+
+	time [ (p)] [ without time zone ]	8 bytes	     time of day (no date)			00:00:00		    24:00:00
+
+	time [ (p)] with time zone		12 bytes	times of day only, with time zone	00:00:00+1459		24:00:00-1459
+
+	interval [fields ] [(p) ]		12 bytes	time interval			       -178000000 years       178000000 years
+
+
+->Boolean Type
+*PostgreSQL provides the standard SQL type Boolean. The Boolean data type can have the states true, false, and a third state, unknown, which is represented by the SQL null value.
+
+Name	Storage Size	Description
+boolean	1 byte	state of true or false
+
+->Enumerated Type
+*Enumerated (enum) types are data types that comprise a static, ordered set of values. They are equivalent to the enum types supported in a number of programming languages.
+
+Unlike other types, Enumerated Types need to be created using CREATE TYPE command. This type is used to store a static, ordered set of values. For example compass directions, i.e., NORTH, SOUTH, EAST, and WEST or days of the week as shown below −
+
+CREATE TYPE week AS ENUM ('Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat', 'Sun');
+
+
+->Geometric Type
+*Geometric data types represent two-dimensional spatial objects. The most fundamental type, the point, forms the basis for all of the other types.
+
+Name	Storage Size	Representation	Description
+point	16 bytes	Point on a plane	(x,y)
+line	32 bytes	Infinite line (not fully implemented)	((x1,y1),(x2,y2))
+lseg	32 bytes	Finite line segment	((x1,y1),(x2,y2))
+box	32 bytes	Rectangular box	((x1,y1),(x2,y2))
+path	16+16n bytes	Closed path (similar to polygon)	((x1,y1),...)
+path	16+16n bytes	Open path	[(x1,y1),...]
+polygon	40+16n	Polygon (similar to closed path)	((x1,y1),...)
+circle	24 bytes	Circle	<(x,y),r> (center point and radius)
+
+
+
+
+
 
 
 
