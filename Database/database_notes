@@ -562,6 +562,69 @@ SELECT CURRENT_TIMESTAMP;
  2023-03-17 16:25:26.110529+05:30
 
 
+17.Where clause
+
+*The PostgreSQL WHERE clause is used to specify a condition while fetching the data from single table or joining with multiple tables.
+
+*If the given condition is satisfied, only then it returns specific value from the table. You can filter out rows that you do not want included in the result-set by using the WHERE clause.
+
+*The WHERE clause not only is used in SELECT statement, but it is also used in UPDATE, DELETE statement, etc., which we would examine in subsequent chapters.
+
+Syntax
+The basic syntax of SELECT statement with WHERE clause is as follows −
+
+SELECT column1, column2, columnN
+FROM table_name
+WHERE [search_condition]
+
+Example:-
+
+->select * from employee where salary=40000;
+ id | first_name | last_name | gender |    dob     |             email             | salary 
+----+------------+-----------+--------+------------+-------------------------------+--------
+  1 | Srishti    | Garg      | Female | 1999-11-18 | srishti.garg@berylsystems.com |  40000
+  2 | Simran     | Gupta     | Female | 1999-07-25 | simran.gupta@gmail.com        |  40000
+(2 rows)
+
+
+->select * From employee where salary IN(40000,60000);
+Shows the records where salary is either 40000 or 60000
+
+id | first_name | last_name | gender |    dob     |             email             | salary 
+----+------------+-----------+--------+------------+-------------------------------+--------
+  1 | Srishti    | Garg      | Female | 1999-11-18 | srishti.garg@berylsystems.com |  40000
+  2 | Simran     | Gupta     | Female | 1999-07-25 | simran.gupta@gmail.com        |  40000
+  3 | Nimit      | Mittal    | Male   | 1996-12-06 | nimit.mittal@gmail.com        |  60000
+(3 rows)
+
+
+->select * from employee where salary NOT IN(40000,60000);
+The following SELECT statement lists down all the records where salary value is neither 40000 nor 60000
+ select * from employee where salary NOT IN(40000,60000);
+ 
+id | first_name | last_name | gender |    dob     |         email          | salary 
+----+------------+-----------+--------+------------+------------------------+--------
+  4 | Neeraj     | Kumar     | Male   | 1998-01-07 | neeraj.kumar@gmail.com |  20000
+  5 | Rachit     | Garg      | Male   | 1997-05-04 | rachit.garg@gmail.com  |  50000
+  6 | Nishtha    | Goel      | Female | 1998-11-10 | nishtha.goel@gmail.com |  30000
+  7 | Veena      | Rao       | Female | 1989-08-04 | veena.rao@gmail.com    |  90000
+
+
+->select * from employee where salary between 40000 and 70000;
+
+The following SELECT statement lists down all the records where salary value is in BETWEEN 40000 AND 70000
+
+id | first_name | last_name | gender |    dob     |             email             | salary 
+----+------------+-----------+--------+------------+-------------------------------+--------
+  1 | Srishti    | Garg      | Female | 1999-11-18 | srishti.garg@berylsystems.com |  40000
+  2 | Simran     | Gupta     | Female | 1999-07-25 | simran.gupta@gmail.com        |  40000
+  3 | Nimit      | Mittal    | Male   | 1996-12-06 | nimit.mittal@gmail.com        |  60000
+  5 | Rachit     | Garg      | Male   | 1997-05-04 | rachit.garg@gmail.com         |  50000
+
+ 
+
+
+
 
 
 
