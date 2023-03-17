@@ -386,6 +386,129 @@ Example:-Select * from employee;
   7 | Veena      | Rao       | Female | 1989-08-04 | veena.rao@gmail.com           |  90000
 (7 rows)
 
+15.Operators
+
+*An operator is a reserved word or a character used primarily in a PostgreSQL statement's WHERE clause to perform operation(s), such as comparisons and arithmetic operations.
+
+Operators are used to specify conditions in a PostgreSQL statement and to serve as conjunctions for multiple conditions in a statement.
+
+*Arithmetic operators
+*Comparison operators
+*Logical operators
+*Bitwise operators
+
+PostgreSQL Arithmetic Operators
+Assume variable a holds 2 and variable b holds 3, then −
+
+Example
+
+Operator	Description	                                                           Example
++	Addition - Adds values on either side of the operator	                          a + b will give 5
+-	Subtraction - Subtracts right hand operand from left hand operand	          a - b will give -1
+*	Multiplication - Multiplies values on either side of the operator	          a * b will give 6
+/	Division - Divides left hand operand by right hand operand	                  b / a will give 1
+%	Modulus - Divides left hand operand by right hand operand and returns remainder	  b % a will give 1
+^	Exponentiation - This gives the exponent value of the right hand operand	  a ^ b will give 8
+|/	square root	                                                                 |/ 25.0 will give 5
+||/	Cube root	                                                                 ||/ 27.0 will give 3
+!	factorial	                                                                  5 ! will give 120
+!!	factorial (prefix operator)	                                                  !! 5 will give 120
+
+Example:test=# 
+select 2+3;
+ ?column? 
+----------
+        5
+(1 row)
+
+
+PostgreSQL Comparison Operators
+Assume variable a holds 10 and variable b holds 20, then −
+
+
+Operator	Description	                                                                                                            Example
+=	Checks if the values of two operands are equal or not, if yes then condition becomes true.	                                (a = b) is not true.
+!=	Checks if the values of two operands are equal or not, if values are not equal then condition becomes true.	                (a != b) is true.
+<>	Checks if the values of two operands are equal or not, if values are not equal then condition becomes true.	                (a <> b) is true.
+>	Checks if the value of left operand is greater than the value of right operand, if yes then condition becomes true.	        (a > b) is not true.
+<	Checks if the value of left operand is less than the value of right operand, if yes then condition becomes true.	        (a < b) is true.
+>=	Checks if the value of left operand is greater than or equal to the value of right operand, if yes then condition becomes true.	(a >= b) is not true.
+<=	Checks if the value of left operand is less than or equal to the value of right operand, if yes then condition becomes true.	(a <= b) is true.
+
+Example:-
+test=# select * From employee where salary>50000;
+ id | first_name | last_name | gender |    dob     |         email          | salary 
+----+------------+-----------+--------+------------+------------------------+--------
+  3 | Nimit      | Mittal    | Male   | 1996-12-06 | nimit.mittal@gmail.com |  60000
+  7 | Veena      | Rao       | Female | 1989-08-04 | veena.rao@gmail.com    |  90000
+(2 rows)
+
+
+PostgreSQL Logical Operators
+Here is a list of all the logical operators available in PostgresSQL.
+
+Operator & Description	
+AND
+
+The AND operator allows the existence of multiple conditions in a PostgresSQL statement's WHERE clause.
+
+Eg:-
+test=# select * From employee where gender='Female' AND salary=40000;
+ id | first_name | last_name | gender |    dob     |             email             | salary 
+----+------------+-----------+--------+------------+-------------------------------+--------
+  1 | Srishti    | Garg      | Female | 1999-11-18 | srishti.garg@berylsystems.com |  40000
+  2 | Simran     | Gupta     | Female | 1999-07-25 | simran.gupta@gmail.com        |  40000
+(2 rows)
+
+
+
+NOT
+
+The NOT operator reverses the meaning of the logical operator with which it is used. Eg. NOT EXISTS, NOT BETWEEN, NOT IN etc. This is negate operator.
+	
+OR
+
+The OR operator is used to combine multiple conditions in a PostgresSQL statement's WHERE clause.
+Eg:-
+select * from employee where gender='Female' Or salary>40000;
+ id | first_name | last_name | gender |    dob     |             email             | salary 
+----+------------+-----------+--------+------------+-------------------------------+--------
+  1 | Srishti    | Garg      | Female | 1999-11-18 | srishti.garg@berylsystems.com |  40000
+  2 | Simran     | Gupta     | Female | 1999-07-25 | simran.gupta@gmail.com        |  40000
+  3 | Nimit      | Mittal    | Male   | 1996-12-06 | nimit.mittal@gmail.com        |  60000
+  5 | Rachit     | Garg      | Male   | 1997-05-04 | rachit.garg@gmail.com         |  50000
+  6 | Nishtha    | Goel      | Female | 1998-11-10 | nishtha.goel@gmail.com        |  30000
+  7 | Veena      | Rao       | Female | 1989-08-04 | veena.rao@gmail.com           |  90000
+
+
+The Bitwise operators supported by PostgreSQL are listed in the following table −
+
+Operator	Description	                                                                                                            Example
+&	Binary AND Operator copies a bit to the result if it exists in both operands.	                                                  (A & B) will give 12 which is 0000 1100
+|	Binary OR Operator copies a bit if it exists in either operand.	                                                                   (A | B) will give 61 which is 0011 1101
+~	Binary Ones Complement Operator is unary and has the effect of 'flipping' bits.	                                                   (~A ) will give -61 which is 1100 0011 in 2's     c                                                                                                                                           complement form due to a signed binary number.
+<<	Binary Left Shift Operator. The left operands value is moved left by the number of bits specified by the right operand.	            A << 2 will give 240 which is 1111 0000
+>>	Binary Right Shift Operator. The left operands value is moved right by the number of bits specified by the right operand.	    A >> 2 will give 15 which is 0000 1111
+#	bitwise XOR.	A # B will give 49 which is 00110001
+
+
+Example:-
+test=# select 60 | 13;
+ ?column? 
+----------
+       61
+(1 row)
+
+test=# select (~60);
+ ?column? 
+----------
+      -61
+(1 row)
+
+
+
+
+
 
 
 
