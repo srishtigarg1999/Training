@@ -330,7 +330,24 @@ Advantages of using a Schema
 *Third-party applications can be put into separate schemas so they do not collide with the names of other objects.
 
 
-INSERT into employee(first_name,last_name,gender,DOB,email,salary)VALUES('Srishti','Garg','Female','1999-11-18','srishti.garg@berylsystems.com',40000);
+13.Insert
+*The PostgreSQL INSERT INTO statement allows one to insert new rows into a table. One can insert a single row at a time or several rows as a result of a query.
+
+Syntax:-
+Basic syntax of INSERT INTO statement is as follows −
+
+INSERT INTO TABLE_NAME (column1, column2, column3,...columnN)
+VALUES (value1, value2, value3,...valueN);
+
+*Here, column1, column2,...columnN are the names of the columns in the table into which you want to insert data.
+
+*The target column names can be listed in any order. The values supplied by the VALUES clause or query are associated with the explicit or implicit column list left-to-right.
+
+Example:-
+INSERT into employee(first_name,last_name,gender,DOB,email,salary)VALUES('Simran','Gupta','Female','1999-07-25','simran.gupta@gmail.com',40000),('Nimit','Mittal','Male','1996-12-06','nimit.mittal@gmail.com',60000),('Neeraj','Kumar','Male','1998-01-07','neeraj.kumar@gmail.com',20000),('Rachit','Garg','Male','1997-05-04','rachit.garg@gmail.com',50000);
+
+
+
 
 
 
