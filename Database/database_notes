@@ -347,6 +347,47 @@ Example:-
 INSERT into employee(first_name,last_name,gender,DOB,email,salary)VALUES('Simran','Gupta','Female','1999-07-25','simran.gupta@gmail.com',40000),('Nimit','Mittal','Male','1996-12-06','nimit.mittal@gmail.com',60000),('Neeraj','Kumar','Male','1998-01-07','neeraj.kumar@gmail.com',20000),('Rachit','Garg','Male','1997-05-04','rachit.garg@gmail.com',50000);
 
 
+14.Select
+
+*PostgreSQL SELECT statement is used to fetch the data from a database table, which returns data in the form of result table. These result tables are called result-sets.
+
+Syntax
+The basic syntax of SELECT statement is as follows −
+
+SELECT column1, column2, columnN FROM table_name;
+
+Example:-
+select id,salary from employee;
+
+id | salary 
+----+--------
+  1 |  40000
+  2 |  40000
+  3 |  60000
+  4 |  20000
+  5 |  50000
+  6 |  30000
+  7 |  90000
+
+Here, column1, column2...are the fields of a table, whose values you want to fetch. If you want to fetch all the fields available in the field then you can use the following syntax −
+
+SELECT * FROM table_name;
+
+Example:-Select * from employee;
+
+ id | first_name | last_name | gender |    dob     |             email             | salary 
+----+------------+-----------+--------+------------+-------------------------------+--------
+  1 | Srishti    | Garg      | Female | 1999-11-18 | srishti.garg@berylsystems.com |  40000
+  2 | Simran     | Gupta     | Female | 1999-07-25 | simran.gupta@gmail.com        |  40000
+  3 | Nimit      | Mittal    | Male   | 1996-12-06 | nimit.mittal@gmail.com        |  60000
+  4 | Neeraj     | Kumar     | Male   | 1998-01-07 | neeraj.kumar@gmail.com        |  20000
+  5 | Rachit     | Garg      | Male   | 1997-05-04 | rachit.garg@gmail.com         |  50000
+  6 | Nishtha    | Goel      | Female | 1998-11-10 | nishtha.goel@gmail.com        |  30000
+  7 | Veena      | Rao       | Female | 1989-08-04 | veena.rao@gmail.com           |  90000
+(7 rows)
+
+
+
 
 
 
