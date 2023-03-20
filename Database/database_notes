@@ -697,6 +697,81 @@ select * from employee where gender='Female' OR salary<=30000;
   7 | Veena      | Rao       | Female | 1989-08-04 | veena.rao@gmail.com           |  90000
 (5 rows)
 
+20. Update
+*The PostgreSQL UPDATE Query is used to modify the existing records in a table.
+*You can use WHERE clause with UPDATE query to update the selected rows. Otherwise, all the rows would be updated.
+
+Update employee SET salary=55000 where id=3;
+UPDATE 1
+test=# select * from employee;
+ id | first_name | last_name | gender |    dob     |             email             | salary 
+----+------------+-----------+--------+------------+-------------------------------+--------
+  1 | Srishti    | Garg      | Female | 1999-11-18 | srishti.garg@berylsystems.com |  40000
+  2 | Simran     | Gupta     | Female | 1999-07-25 | simran.gupta@gmail.com        |  40000
+  4 | Neeraj     | Kumar     | Male   | 1998-01-07 | neeraj.kumar@gmail.com        |  20000
+  5 | Rachit     | Garg      | Male   | 1997-05-04 | rachit.garg@gmail.com         |  50000
+  6 | Nishtha    | Goel      | Female | 1998-11-10 | nishtha.goel@gmail.com        |  30000
+  7 | Veena      | Rao       | Female | 1989-08-04 | veena.rao@gmail.com           |  90000
+  3 | Nimit      | Mittal    | Male   | 1996-12-06 | nimit.mittal@gmail.com        |  55000
+(7 rows)
+
+If you want to modify all ADDRESS and SALARY column values in COMPANY table, you do not need to use WHERE clause and UPDATE query would be as follows −
+
+testdb=# UPDATE COMPANY SET ADDRESS = 'Texas', SALARY=20000;
+
+21.Delete
+
+*The PostgreSQL DELETE Query is used to delete the existing records from a table.
+*You can use WHERE clause with DELETE query to delete the selected rows. Otherwise, all the records would be deleted.
+
+Syntax
+The basic syntax of DELETE query with WHERE clause is as follows −
+
+DELETE FROM table_name
+WHERE [condition];
+You can combine N number of conditions using AND or OR operators.
+
+select * from employee;
+
+
+ id | first_name | last_name | gender |    dob     |             email             | salary 
+----+------------+-----------+--------+------------+-------------------------------+--------
+  1 | Srishti    | Garg      | Female | 1999-11-18 | srishti.garg@berylsystems.com |  40000
+  2 | Simran     | Gupta     | Female | 1999-07-25 | simran.gupta@gmail.com        |  40000
+  4 | Neeraj     | Kumar     | Male   | 1998-01-07 | neeraj.kumar@gmail.com        |  20000
+  5 | Rachit     | Garg      | Male   | 1997-05-04 | rachit.garg@gmail.com         |  50000
+  6 | Nishtha    | Goel      | Female | 1998-11-10 | nishtha.goel@gmail.com        |  30000
+  7 | Veena      | Rao       | Female | 1989-08-04 | veena.rao@gmail.com           |  90000
+  3 | Nimit      | Mittal    | Male   | 1996-12-06 | nimit.mittal@gmail.com        |  55000
+  8 | Simranjit  | Singh     | Male   | 1996-01-12 | simranjit.singh@gmail.com     |  95000
+  9 | Shubham    | Soni      | Male   | 1999-11-17 | shubham.soni@gmail.com        |  45000
+(9 rows)
+
+Example:
+Delete from employee where id=9;
+DELETE 1
+
+After deletion:
+id | first_name | last_name | gender |    dob     |             email             | salary 
+----+------------+-----------+--------+------------+-------------------------------+--------
+  1 | Srishti    | Garg      | Female | 1999-11-18 | srishti.garg@berylsystems.com |  40000
+  2 | Simran     | Gupta     | Female | 1999-07-25 | simran.gupta@gmail.com        |  40000
+  4 | Neeraj     | Kumar     | Male   | 1998-01-07 | neeraj.kumar@gmail.com        |  20000
+  5 | Rachit     | Garg      | Male   | 1997-05-04 | rachit.garg@gmail.com         |  50000
+  6 | Nishtha    | Goel      | Female | 1998-11-10 | nishtha.goel@gmail.com        |  30000
+  7 | Veena      | Rao       | Female | 1989-08-04 | veena.rao@gmail.com           |  90000
+  3 | Nimit      | Mittal    | Male   | 1996-12-06 | nimit.mittal@gmail.com        |  55000
+  8 | Simranjit  | Singh     | Male   | 1996-01-12 | simranjit.singh@gmail.com     |  95000
+(8 rows)
+
+
+If you want to DELETE all the records from COMPANY table, you do not need to use WHERE clause with DELETE queries, which would be as follows −
+
+testdb=# DELETE FROM employee;
+
+
+
+
 
 
 
