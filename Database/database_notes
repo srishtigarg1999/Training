@@ -621,6 +621,85 @@ id | first_name | last_name | gender |    dob     |             email           
   3 | Nimit      | Mittal    | Male   | 1996-12-06 | nimit.mittal@gmail.com        |  60000
   5 | Rachit     | Garg      | Male   | 1997-05-04 | rachit.garg@gmail.com         |  50000
 
+
+18.To calculate age from DOB
+Syntax:-select age(Now(),dob) as age_person  from employee;
+
+ age_person                
+------------------------------------------
+ 23 years 4 mons 2 days 11:21:23.981559
+ 23 years 7 mons 26 days 11:21:23.981559
+ 26 years 3 mons 14 days 11:21:23.981559
+ 25 years 2 mons 13 days 11:21:23.981559
+ 25 years 10 mons 16 days 11:21:23.981559
+ 24 years 4 mons 10 days 11:21:23.981559
+ 33 years 7 mons 16 days 11:21:23.981559
+(7 rows)
+
+To calculate difference between 2 dates
+select age('2023/02/01','2022/02/01') as age;
+age   
+--------
+ 1 year
+(1 row)
+
+
+
+18.AND Operator
+*These two operators are called conjunctive operators.
+*These operators provide a means to make multiple comparisons with different operators in the same PostgreSQL statement.
+*The AND operator allows the existence of multiple conditions in a PostgreSQL statement's WHERE clause.
+*While using AND operator, complete condition will be assumed true when all the conditions are true.
+*For example [condition1] AND [condition2] will be true only when both condition1 and condition2 are true.
+
+Syntax
+The basic syntax of AND operator with WHERE clause is as follows −
+
+SELECT column1, column2, columnN
+FROM table_name
+WHERE [condition1] AND [condition2]...AND [conditionN];
+
+You can combine N number of conditions using AND operator. For an action to be taken by the PostgreSQL statement, whether it be a transaction or query, all conditions separated by the AND must be TRUE.
+
+Example:-
+test=# select * from employee where gender='Female' AND salary>30000;
+
+ id | first_name | last_name | gender |    dob     |             email             | salary 
+----+------------+-----------+--------+------------+-------------------------------+--------
+  1 | Srishti    | Garg      | Female | 1999-11-18 | srishti.garg@berylsystems.com |  40000
+  2 | Simran     | Gupta     | Female | 1999-07-25 | simran.gupta@gmail.com        |  40000
+  7 | Veena      | Rao       | Female | 1989-08-04 | veena.rao@gmail.com           |  90000
+(3 rows)
+
+
+19.OR Operator
+*These two operators are called conjunctive operators.
+*These operators provide a means to make multiple comparisons with different operators in the same PostgreSQL statement.
+*While using OR operator, complete condition will be assumed true when at least any of the conditions is true. 
+*For example [condition1] OR [condition2] will be true if either condition1 or condition2 is true.
+
+Syntax
+The basic syntax of OR operator with WHERE clause is as follows −
+
+SELECT column1, column2, columnN
+FROM table_name
+WHERE [condition1] OR [condition2]...OR [conditionN]
+
+Example:-
+select * from employee where gender='Female' OR salary<=30000;
+
+ id | first_name | last_name | gender |    dob     |             email             | salary 
+----+------------+-----------+--------+------------+-------------------------------+--------
+  1 | Srishti    | Garg      | Female | 1999-11-18 | srishti.garg@berylsystems.com |  40000
+  2 | Simran     | Gupta     | Female | 1999-07-25 | simran.gupta@gmail.com        |  40000
+  4 | Neeraj     | Kumar     | Male   | 1998-01-07 | neeraj.kumar@gmail.com        |  20000
+  6 | Nishtha    | Goel      | Female | 1998-11-10 | nishtha.goel@gmail.com        |  30000
+  7 | Veena      | Rao       | Female | 1989-08-04 | veena.rao@gmail.com           |  90000
+(5 rows)
+
+
+
+
  
 
 
