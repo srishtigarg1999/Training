@@ -933,6 +933,133 @@ test=# select first_name,SUM(salary) from employee Group By first_name;
  Veena      |  90000
 (8 rows)
 
+select first_name,SUM(salary) from employee Group By first_name Order by first_name desc;
+ first_name |  sum   
+------------+--------
+ Veena      |  90000
+ Srishti    |  40000
+ Simranjit  | 155000
+ Simran     |  40000
+ Rachit     |  50000
+ Nishtha    |  30000
+ Nimit      |  55000
+ Neeraj     |  20000
+
+26.With clause
+*with clause is used for defining a temporary relation such that the output of this temporary relation is available and is used by the 	 query that is associated with the WITH clause.
+*helps to make complex query simpler , 
+*eg :- without group by clause using avg of any attribute.
+
+Syntax
+The basic syntax of WITH query is as follows −
+
+WITH
+   name_for_summary_data AS (
+      SELECT Statement)
+   SELECT columns
+   FROM name_for_summary_data
+   WHERE conditions <=> (
+      SELECT column
+      FROM name_for_summary_data)
+   [ORDER BY columns]
+
+Example:-
+test=# WITH salary_table as (select first_name,last_name,salary from employee)
+select * from salary_table;
+ first_name | last_name | salary 
+------------+-----------+--------
+ Srishti    | Garg      |  40000
+ Simran     | Gupta     |  40000
+ Neeraj     | Kumar     |  20000
+ Rachit     | Garg      |  50000
+ Nishtha    | Goel      |  30000
+ Veena      | Rao       |  90000
+ Nimit      | Mittal    |  55000
+ Simranjit  | Singh     |  95000
+ Simranjit  | Kaur      |  60000
+(9 rows)
+
+
+27.Having Clause
+*The HAVING clause allows us to pick out particular rows where the function's result meets some condition.
+*The WHERE clause places conditions on the selected columns, whereas the HAVING clause places conditions on groups created by the GROUP BY clause.
+Syntax
+The following is the position of the HAVING clause in a SELECT query −
+
+SELECT
+FROM
+WHERE
+GROUP BY
+HAVING
+ORDER BY
+
+*The HAVING clause must follow the GROUP BY clause in a query and must also precede the ORDER BY clause if used.
+The following is the syntax of the SELECT statement, including the HAVING clause −
+
+SELECT column1, column2
+FROM table1, table2
+WHERE [ conditions ]
+GROUP BY column1, column2
+HAVING [ conditions ]
+ORDER BY column1, column2
+
+Example:-
+test=# SELECT first_name FROM employee GROUP BY first_name HAVING count(first_name) < 2;
+ first_name 
+------------
+ Rachit
+ Simran
+ Nishtha
+ Nimit
+ Neeraj
+ Srishti
+ Veena
+(7 rows)
+
+
+
+
+28.Distinct Keyword
+* DISTINCT keyword is used in conjunction with SELECT statement to eliminate all the duplicate records and fetching only unique records.
+
+Syntax
+The basic syntax of DISTINCT keyword to eliminate duplicate records is as follows −
+
+SELECT DISTINCT column1, column2,.....columnN
+FROM table_name
+WHERE [condition]
+
+Example:-
+test=# select Distinct(salary) from employee;
+ salary 
+--------
+  50000
+  95000
+  30000
+  40000
+  60000
+  90000
+  20000
+  55000
+
+select Distinct(first_name) from employee; 
+ first_name 
+------------
+ Rachit
+ Simran
+ Nishtha
+ Nimit
+ Neeraj
+ Srishti
+ Simranjit
+ Veena
+(8 rows)
+
+
+
+
+
+
 
 
 
