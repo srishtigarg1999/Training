@@ -855,8 +855,87 @@ select * from employee LIMIT 4 OFFSET 4;
 
 *To print the third highest salary
 select * from employee order by salary Desc Offset 2 Limit 1;
+id | first_name | last_name | gender |    dob     |         email          | salary 
+----+------------+-----------+--------+------------+------------------------+--------
+  3 | Nimit      | Mittal    | Male   | 1996-12-06 | nimit.mittal@gmail.com |  55000
+(1 row)
+
+
 *To print the Nth highest salary
 select * from employee order by salary Desc Offset N-1 Limit 1;
+
+24. ORDER BY clause
+
+*The PostgreSQL ORDER BY clause is used to sort the data in ascending or descending order, based on one or more columns.
+
+*The basic syntax of ORDER BY clause is as follows −
+
+SELECT column-list
+FROM table_name
+[WHERE condition]
+[ORDER BY column1, column2, .. columnN] [ASC | DESC];
+
+*You can use more than one column in the ORDER BY clause. 
+*Make sure whatever column you are using to sort, that column should be available in column-list.
+
+Example:-
+select * from employee order by salary Desc;
+ id | first_name | last_name | gender |    dob     |             email             | salary 
+----+------------+-----------+--------+------------+-------------------------------+--------
+  8 | Simranjit  | Singh     | Male   | 1996-01-12 | simranjit.singh@gmail.com     |  95000
+  7 | Veena      | Rao       | Female | 1989-08-04 | veena.rao@gmail.com           |  90000
+  3 | Nimit      | Mittal    | Male   | 1996-12-06 | nimit.mittal@gmail.com        |  55000
+  5 | Rachit     | Garg      | Male   | 1997-05-04 | rachit.garg@gmail.com         |  50000
+  1 | Srishti    | Garg      | Female | 1999-11-18 | srishti.garg@berylsystems.com |  40000
+  2 | Simran     | Gupta     | Female | 1999-07-25 | simran.gupta@gmail.com        |  40000
+  6 | Nishtha    | Goel      | Female | 1998-11-10 | nishtha.goel@gmail.com        |  30000
+  4 | Neeraj     | Kumar     | Male   | 1998-01-07 | neeraj.kumar@gmail.com        |  20000
+(8 rows)
+
+25.Group By clause
+
+*The PostgreSQL GROUP BY clause is used in collaboration with the SELECT statement to group together those rows in a table that have identical data.
+*This is done to eliminate redundancy in the output and/or compute aggregates that apply to these groups.
+
+Syntax
+The basic syntax of GROUP BY clause is given below. The GROUP BY clause must follow the conditions in the WHERE clause and must precede the ORDER BY clause if one is used.
+
+SELECT column-list
+FROM table_name
+WHERE [ conditions ]
+GROUP BY column1, column2....columnN
+ORDER BY column1, column2....columnN
+
+select * from employee;
+ id | first_name | last_name | gender |    dob     |             email             | salary 
+----+------------+-----------+--------+------------+-------------------------------+--------
+  1 | Srishti    | Garg      | Female | 1999-11-18 | srishti.garg@berylsystems.com |  40000
+  2 | Simran     | Gupta     | Female | 1999-07-25 | simran.gupta@gmail.com        |  40000
+  4 | Neeraj     | Kumar     | Male   | 1998-01-07 | neeraj.kumar@gmail.com        |  20000
+  5 | Rachit     | Garg      | Male   | 1997-05-04 | rachit.garg@gmail.com         |  50000
+  6 | Nishtha    | Goel      | Female | 1998-11-10 | nishtha.goel@gmail.com        |  30000
+  7 | Veena      | Rao       | Female | 1989-08-04 | veena.rao@gmail.com           |  90000
+  3 | Nimit      | Mittal    | Male   | 1996-12-06 | nimit.mittal@gmail.com        |  55000
+  8 | Simranjit  | Singh     | Male   | 1996-01-12 | simranjit.singh@gmail.com     |  95000
+ 10 | Simranjit  | Kaur      | Female | 1998-07-12 | simranjit.kaur@gmail.com      |  60000
+(9 rows)
+
+test=# select first_name,SUM(salary) from employee Group By first_name;
+ first_name |  sum   
+------------+--------
+ Rachit     |  50000
+ Simran     |  40000
+ Nishtha    |  30000
+ Nimit      |  55000
+ Neeraj     |  20000
+ Srishti    |  40000
+ Simranjit  | 155000
+ Veena      |  90000
+(8 rows)
+
+
+
+
 
 
 
