@@ -1257,7 +1257,7 @@ The following is the syntax of LEFT OUTER JOIN −
 SELECT ... FROM table1 LEFT OUTER JOIN table2 ON conditional_expression ...
 
 Example:-
-select id,first_name,last_name,salary,dept_name from department left outer join employees  on employees.dep_id=department.dep_id;
+select id,first_name,last_name,salary,dept_name from employees left outer join department on employees.dep_id=department.dep_id;
  id | first_name | last_name | salary |  dept_name  
 ----+------------+-----------+--------+-------------
   1 | Simran     | Gupta     |  40000 | IT
@@ -1269,6 +1269,8 @@ select id,first_name,last_name,salary,dept_name from department left outer join 
   7 | Veena      | Rao       |  90000 | Support
   8 | Simranjit  | Singh     |  95000 | HR
   9 | Simranjit  | Kaur      |  50000 | Operations
+ 10 | Shreya     | Khurana   |  65000 | 
+
 
 
 The RIGHT OUTER JOIN
@@ -1299,6 +1301,105 @@ First, an inner join is performed. Then, for each row in table T1 that does not 
 The following is the syntax of FULL OUTER JOIN −
 
 SELECT ... FROM table1 FULL OUTER JOIN table2 ON conditional_expression ..
+
+
+31.Union Clause
+*The PostgreSQL UNION clause/operator is used to combine the results of two or more SELECT statements without returning any duplicate rows.
+*To use UNION, each SELECT must have the same number of columns selected, the same number of column expressions, the same data type, and have them in the same order but they do not have to be the same length.
+
+Syntax
+The basic syntax of UNION is as follows −
+
+SELECT column1 [, column2 ]
+FROM table1 [, table2 ]
+[WHERE condition]
+
+UNION
+
+SELECT column1 [, column2 ]
+FROM table1 [, table2 ]
+[WHERE condition]
+
+select id,first_name,salary,dept_name from employees inner join department on department.dep_id=employees.dep_id UNION select id,first_name,salary,dept_name from employees left outer join department on department.dep_id = employees.dep_id;
+ id | first_name | salary |  dept_name  
+----+------------+--------+-------------
+  3 | Neeraj     |  20000 | Support
+  7 | Veena      |  90000 | Support
+  5 | Srishti    |  40000 | Development
+  8 | Simranjit  |  95000 | HR
+  6 | Nishtha    |  60000 | IT
+  2 | Nimit      |  60000 | HR
+  9 | Simranjit  |  50000 | Operations
+  1 | Simran     |  40000 | IT
+  4 | Rachit     |  50000 | Operations
+ 10 | Shreya     |  65000 | 
+
+
+The UNION ALL Clause
+The UNION ALL operator is used to combine the results of two SELECT statements including duplicate rows. The same rules that apply to UNION apply to the UNION ALL operator as well.
+Syntax
+The basic syntax of UNION ALL is as follows −
+
+SELECT column1 [, column2 ]
+FROM table1 [, table2 ]
+[WHERE condition]
+
+UNION ALL
+
+SELECT column1 [, column2 ]
+FROM table1 [, table2 ]
+[WHERE condition]
+
+
+ALIAS
+
+a)alias table name
+*You can rename a table or a column temporarily by giving another name, which is known as ALIAS.
+*The use of table aliases means to rename a table in a particular PostgreSQL statement.
+*Renaming is a temporary change and the actual table name does not change in the database.
+*Syntax
+The basic syntax of table alias is as follows −
+
+SELECT column1, column2....
+FROM table_name AS alias_name
+WHERE [condition];
+
+
+select e.id,e.first_name,d.dept_name,e.salary from employees as e , department as d where e.dep_id = d.dep_id;
+ id | first_name |  dept_name  | salary 
+----+------------+-------------+--------
+  1 | Simran     | IT          |  40000
+  2 | Nimit      | HR          |  60000
+  3 | Neeraj     | Support     |  20000
+  4 | Rachit     | Operations  |  50000
+  5 | Srishti    | Development |  40000
+  6 | Nishtha    | IT          |  60000
+  7 | Veena      | Support     |  90000
+  8 | Simranjit  | HR          |  95000
+  9 | Simranjit  | Operations  |  50000
+(9 rows)
+
+
+b)alias column name
+
+The basic syntax of column alias is as follows −
+
+SELECT column_name AS alias_name
+FROM table_name
+WHERE [condition];
+
+select e.id as Company_ID,e.first_name,d.dept_name as Department_name from employees as e,Department as d where e.dep_id=d.dep_id;
+ company_id | first_name | department_name 
+------------+------------+-----------------
+          1 | Simran     | IT
+          2 | Nimit      | HR
+          3 | Neeraj     | Support
+          4 | Rachit     | Operations
+          5 | Srishti    | Development
+          6 | Nishtha    | IT
+          7 | Veena      | Support
+          8 | Simranjit  | HR
+          9 | Simranjit  | Operations
 
 
 
