@@ -1145,6 +1145,7 @@ CREATE TABLE DEPARTMENT1(
 );
 
 
+
 5.CHECK Constraint
 The CHECK Constraint enables a condition to check the value being entered into a record. If the condition evaluates to false, the record violates the constraint and is not entered into the table.
 
@@ -1167,6 +1168,144 @@ ALTER TABLE table_name DROP CONSTRAINT some_name;
 
 
 30.Joins
+*The PostgreSQL Joins clause is used to combine records from two or more tables in a database. A JOIN is a means for combining fields from two tables by using values common to each.
+
+*Join Types in PostgreSQL are −
+
+The CROSS JOIN
+The INNER JOIN
+The LEFT OUTER JOIN
+The RIGHT OUTER JOIN
+The FULL OUTER JOIN
+
+We have 2 tables:-
+
+Employees
+id | dep_id | first_name | last_name | gender |    dob     |           email           | salary 
+----+--------+------------+-----------+--------+------------+---------------------------+--------
+  1 |      2 | Simran     | Gupta     | Female | 1999-07-25 | simran.gupta@gmail.com    |  40000
+  2 |      1 | Nimit      | Mittal    | Male   | 1996-12-06 | nimit.mittal@gmail.com    |  60000
+  3 |      3 | Neeraj     | Kumar     | Male   | 1998-01-07 | neeraj.kumar@gmail.com    |  20000
+  4 |      5 | Rachit     | Garg      | Male   | 1997-05-04 | rachit.garg@gmail.com     |  50000
+  5 |      4 | Srishti    | Garg      | Female | 1999-11-18 | srishti.garg@gmail.com    |  40000
+  6 |      2 | Nishtha    | Goel      | Female | 1998-11-10 | nishtha.goel@gmail.com    |  60000
+  7 |      3 | Veena      | Rao       | Female | 1989-08-04 | veena.rao@gmail.com       |  90000
+  8 |      1 | Simranjit  | Singh     | Male   | 1996-01-12 | simranjit.singh@gmail.com |  95000
+  9 |      5 | Simranjit  | Kaur      | Female | 1998-07-12 | simranjit.kaur@gmail.com  |  50000
+
+Department
+dep_id |  dept_name  
+--------+-------------
+      1 | HR
+      2 | IT
+      3 | Support
+      4 | Development
+      5 | Operations
+
+Cross Join
+*A CROSS JOIN matches every row of the first table with every row of the second table. 
+*If the input tables have x and y columns, respectively, the resulting table will have x+y columns.
+
+select first_name,last_name,id,dept_name from employees cross join department where dept_name = 'HR';
+ first_name | last_name | id | dept_name 
+------------+-----------+----+-----------
+ Simran     | Gupta     |  1 | HR
+ Nimit      | Mittal    |  2 | HR
+ Neeraj     | Kumar     |  3 | HR
+ Rachit     | Garg      |  4 | HR
+ Srishti    | Garg      |  5 | HR
+ Nishtha    | Goel      |  6 | HR
+ Veena      | Rao       |  7 | HR
+ Simranjit  | Singh     |  8 | HR
+ Simranjit  | Kaur      |  9 | HR
+(9 rows)
+
+
+
+The INNER JOIN
+*A INNER JOIN creates a new result table by combining column values of two tables (table1 and table2) based upon the join-predicate. 
+*The query compares each row of table1 with each row of table2 to find all pairs of rows, which satisfy the join-predicate.
+
+The following is the syntax of INNER JOIN −
+
+SELECT table1.column1, table2.column2...
+FROM table1
+INNER JOIN table2
+ON table1.common_filed = table2.common_field;
+
+select id,first_name,last_name,salary,dept_name from employees inner join department on employees.dep_id=department.dep_id;
+ id | first_name | last_name | salary |  dept_name  
+----+------------+-----------+--------+-------------
+  1 | Simran     | Gupta     |  40000 | IT
+  2 | Nimit      | Mittal    |  60000 | HR
+  3 | Neeraj     | Kumar     |  20000 | Support
+  4 | Rachit     | Garg      |  50000 | Operations
+  5 | Srishti    | Garg      |  40000 | Development
+  6 | Nishtha    | Goel      |  60000 | IT
+  7 | Veena      | Rao       |  90000 | Support
+  8 | Simranjit  | Singh     |  95000 | HR
+  9 | Simranjit  | Kaur      |  50000 | Operations
+
+
+The LEFT OUTER JOIN
+*In case of LEFT OUTER JOIN, an inner join is performed first.
+*Then, for each row in table T1 that does not satisfy the join condition with any row in table T2, a joined row is added with null values in columns of T2. 
+*Thus, the joined table always has at least one row for each row in T1.
+
+The following is the syntax of LEFT OUTER JOIN −
+
+SELECT ... FROM table1 LEFT OUTER JOIN table2 ON conditional_expression ...
+
+Example:-
+select id,first_name,last_name,salary,dept_name from department left outer join employees  on employees.dep_id=department.dep_id;
+ id | first_name | last_name | salary |  dept_name  
+----+------------+-----------+--------+-------------
+  1 | Simran     | Gupta     |  40000 | IT
+  2 | Nimit      | Mittal    |  60000 | HR
+  3 | Neeraj     | Kumar     |  20000 | Support
+  4 | Rachit     | Garg      |  50000 | Operations
+  5 | Srishti    | Garg      |  40000 | Development
+  6 | Nishtha    | Goel      |  60000 | IT
+  7 | Veena      | Rao       |  90000 | Support
+  8 | Simranjit  | Singh     |  95000 | HR
+  9 | Simranjit  | Kaur      |  50000 | Operations
+
+
+The RIGHT OUTER JOIN
+*First, an inner join is performed. Then, for each row in table T2 that does not satisfy the join condition with any row in table T1, a joined row is added with null values in columns of T1. This is the converse of a left join; the result table will always have a row for each row in T2.
+
+The following is the syntax of RIGHT OUTER JOIN −
+
+SELECT ... FROM table1 RIGHT OUTER JOIN table2 ON conditional_expression ...
+
+Example:-
+ select id,first_name,last_name,salary,dept_name from employees right outer join department on employees.dep_id=department.dep_id;
+ id | first_name | last_name | salary |  dept_name  
+----+------------+-----------+--------+-------------
+  1 | Simran     | Gupta     |  40000 | IT
+  2 | Nimit      | Mittal    |  60000 | HR
+  3 | Neeraj     | Kumar     |  20000 | Support
+  4 | Rachit     | Garg      |  50000 | Operations
+  5 | Srishti    | Garg      |  40000 | Development
+  6 | Nishtha    | Goel      |  60000 | IT
+  7 | Veena      | Rao       |  90000 | Support
+  8 | Simranjit  | Singh     |  95000 | HR
+  9 | Simranjit  | Kaur      |  50000 | Operations
+
+
+The FULL OUTER JOIN
+First, an inner join is performed. Then, for each row in table T1 that does not satisfy the join condition with any row in table T2, a joined row is added with null values in columns of T2. In addition, for each row of T2 that does not satisfy the join condition with any row in T1, a joined row with null values in the columns of T1 is added.
+
+The following is the syntax of FULL OUTER JOIN −
+
+SELECT ... FROM table1 FULL OUTER JOIN table2 ON conditional_expression ..
+
+
+
+
+
+
+
 
 
 
